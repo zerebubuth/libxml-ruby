@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: LibXML::XML::XPath::Context [LibXML]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../../../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          LibXML::XML::XPath::Context
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../../../files/ext/libxml/libxml_c.html">ext/libxml/libxml.c</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a href="Object.html">LibXML::XML::XPath::Object</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <p>
+            The <a href="Context.html">XML::XPath::Context</a> class is used to
+            evaluate <a href="../XPath.html">XPath</a> expressions. Generally, you
+            should not directly use this class, but instead use the <a
+            href="../Document.html#M000471">XML::Document#find</a> and <a
+            href="../Node.html#M000226">XML::Node#find</a> methods.
+            </p>
+            <pre>doc = XML::Document.string('&lt;header&gt;content&lt;/header&gt;')&#x000A;context = XPath::Context.new(doc)&#x000A;context.node = doc.root&#x000A;context.register_namespaces_from_node(doc.root)&#x000A;nodes = context.find('/header')</pre>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000095">new</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000102">disable_cache</a></li>
+              <li><a href="#M000101">enable_cache</a></li>
+              <li><a href="#M000100">find</a></li>
+              <li><a href="#M000099">node=</a></li>
+              <li><a href="#M000098">register_namespace</a></li>
+              <li><a href="#M000096">register_namespaces</a></li>
+              <li><a href="#M000097">register_namespaces_from_node</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='attribute-list'>
+              <h2 class='section-bar'>Attributes</h2>
+              <div class='name-list'>
+                <table>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>doc</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000095'>
+                <a name='M000095'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>XPath::Context.new(node) &rarr; XPath::Context<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Creates a new <a href="../XPath.html">XPath</a> context for the specified
+                  document. The context can then be used to evaluate an <a
+                  href="../XPath.html">XPath</a> expression.
+                  </p>
+                  <pre>doc = XML::Document.string('&lt;header&gt;&lt;first&gt;hi&lt;/first&gt;&lt;/header&gt;')&#x000A;context = XPath::Context.new(doc)&#x000A;nodes = XPath::Object.new('//first', context)&#x000A;nodes.length == 1</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000095-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000095-source'>static VALUE rxml_xpath_context_initialize(VALUE self, VALUE node)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  VALUE document;&#x000A;&#x000A;  if (rb_obj_is_kind_of(node, cXMLNode) == Qtrue)&#x000A;  {&#x000A;    document = rb_funcall(node, rb_intern(&quot;doc&quot;), 0);&#x000A;    if (NIL_P(document))&#x000A;    rb_raise(rb_eTypeError, &quot;Supplied node must belong to a document.&quot;);&#x000A;  }&#x000A;  else if (rb_obj_is_kind_of(node, cXMLDocument) == Qtrue)&#x000A;  {&#x000A;    document = node;&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rb_raise(rb_eTypeError, &quot;Supplied argument must be a document or node.&quot;);&#x000A;  }&#x000A;&#x000A;  Data_Get_Struct(document, xmlDoc, xdoc);&#x000A;  DATA_PTR(self) = xmlXPathNewContext(xdoc);&#x000A;&#x000A;  /* Save the doc as an attribute, this will expose it to Ruby's GC. */&#x000A;  rb_ivar_set(self, DOC_ATTRIBUTE, document);&#x000A;&#x000A;  return self;&#x000A;}</pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000102'>
+                <a name='M000102'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>context.disable_cache<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Disables an XPath::Context&#8217;s built-in cache.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000102-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000102-source'>static VALUE&#x000A;rxml_xpath_context_disable_cache(VALUE self)&#x000A;{&#x000A;  xmlXPathContextPtr xctxt;&#x000A;  Data_Get_Struct(self, xmlXPathContext, xctxt);&#x000A;&#x000A;  if (xmlXPathContextSetCache(xctxt, 0, 0, 0) == -1)&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;&#x000A;  return self;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000101'>
+                <a name='M000101'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>context.enable_cache(size = nil)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Enables an XPath::Context&#8217;s built-in cache. If the cache is enabled
+                  then <a href="../XPath.html">XPath</a> objects will be cached internally
+                  for reuse. The size parameter controls sets the maximum number of <a
+                  href="../XPath.html">XPath</a> objects that will be cached per <a
+                  href="../XPath.html">XPath</a> object type (node-set, string, number,
+                  boolean, and misc objects). Set size to nil to use the default cache size
+                  of 100.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000101-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000101-source'>static VALUE&#x000A;rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)&#x000A;{&#x000A;  xmlXPathContextPtr xctxt;&#x000A;  VALUE size;&#x000A;  int value = -1;&#x000A;&#x000A;  Data_Get_Struct(self, xmlXPathContext, xctxt);&#x000A;&#x000A;  if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;size) == 1)&#x000A;  {&#x000A;          value = NUM2INT(size);&#x000A;  }&#x000A;&#x000A;  if (xmlXPathContextSetCache(xctxt, 1, value, 0) == -1)&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;&#x000A;  return self;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000100'>
+                <a name='M000100'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>context.find("xpath") &rarr; true|false|number|string|XML::XPath::Object<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Executes the provided xpath function. The result depends on the execution
+                  of the xpath statement. It may be true, false, a number, a string or a node
+                  set.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000100-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000100-source'>static VALUE rxml_xpath_context_find(VALUE self, VALUE xpath_expr)&#x000A;{&#x000A;  xmlXPathContextPtr xctxt;&#x000A;  xmlXPathObjectPtr xobject;&#x000A;  xmlXPathCompExprPtr xcompexpr;&#x000A;  VALUE result;&#x000A;&#x000A;  Data_Get_Struct(self, xmlXPathContext, xctxt);&#x000A;&#x000A;  if (TYPE(xpath_expr) == T_STRING)&#x000A;  {&#x000A;    VALUE expression = rb_check_string_type(xpath_expr);&#x000A;    xobject = xmlXPathEval((xmlChar*) StringValueCStr(expression), xctxt);&#x000A;  }&#x000A;  else if (rb_obj_is_kind_of(xpath_expr, cXMLXPathExpression))&#x000A;  {&#x000A;    Data_Get_Struct(xpath_expr, xmlXPathCompExpr, xcompexpr);&#x000A;    xobject = xmlXPathCompiledEval(xcompexpr, xctxt);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rb_raise(rb_eTypeError,&#x000A;        &quot;Argument should be an intance of a String or XPath::Expression&quot;);&#x000A;  }&#x000A;&#x000A;  if (xobject == NULL)&#x000A;  {&#x000A;    /* xmlLastError is different than xctxt-&gt;lastError.  Use&#x000A;     xmlLastError since it has the message set while xctxt-&gt;lastError&#x000A;     does not. */&#x000A;    xmlErrorPtr xerror = xmlGetLastError();&#x000A;    rxml_raise(xerror);&#x000A;  }&#x000A;&#x000A;  switch (xobject-&gt;type)&#x000A;  {&#x000A;  case XPATH_NODESET:&#x000A;    result = rxml_xpath_object_wrap(xctxt-&gt;doc, xobject);&#x000A;    break;&#x000A;  case XPATH_BOOLEAN:&#x000A;    result = (xobject-&gt;boolval != 0) ? Qtrue : Qfalse;&#x000A;    xmlXPathFreeObject(xobject);&#x000A;    break;&#x000A;  case XPATH_NUMBER:&#x000A;    result = rb_float_new(xobject-&gt;floatval);&#x000A;    xmlXPathFreeObject(xobject);&#x000A;    break;&#x000A;  case XPATH_STRING:&#x000A;    result = rb_str_new2((const char*)xobject-&gt;stringval);&#x000A;    xmlXPathFreeObject(xobject);&#x000A;    break;&#x000A;  default:&#x000A;    result = Qnil;&#x000A;    xmlXPathFreeObject(xobject);&#x000A;  }&#x000A;  return result;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000099'>
+                <a name='M000099'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>context.node = node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Set the current node used by the <a href="../XPath.html">XPath</a> engine
+                  </p>
+                  <pre>doc = XML::Document.string('&lt;header&gt;&lt;first&gt;hi&lt;/first&gt;&lt;/header&gt;')&#x000A;context.node = doc.root.first</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000099-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000099-source'>static VALUE rxml_xpath_context_node_set(VALUE self, VALUE node)&#x000A;{&#x000A;  xmlXPathContextPtr xctxt;&#x000A;  xmlNodePtr xnode;&#x000A;&#x000A;  Data_Get_Struct(self, xmlXPathContext, xctxt);&#x000A;  Data_Get_Struct(node, xmlNode, xnode);&#x000A;  xctxt-&gt;node = xnode;&#x000A;  return node;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000098'>
+                <a name='M000098'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>context.register_namespace(prefix, uri) &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Register the specified namespace URI with the specified prefix in this
+                  context.
+                  </p>
+                  <pre>context.register_namespace('xi', 'http://www.w3.org/2001/XInclude')</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000098-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000098-source'>static VALUE rxml_xpath_context_register_namespace(VALUE self, VALUE prefix, VALUE uri)&#x000A;{&#x000A;  xmlXPathContextPtr ctxt;&#x000A;  Data_Get_Struct(self, xmlXPathContext, ctxt);&#x000A;&#x000A;  /* Prefix could be a symbol. */&#x000A;  prefix = rb_obj_as_string(prefix);&#x000A;  &#x000A;  if (xmlXPathRegisterNs(ctxt, (xmlChar*) StringValuePtr(prefix),&#x000A;      (xmlChar*) StringValuePtr(uri)) == 0)&#x000A;  {&#x000A;    return (Qtrue);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    /* Should raise an exception, IMHO (whose?, why shouldnt it? -danj)*/&#x000A;    rb_warning(&quot;register namespace failed&quot;);&#x000A;    return (Qfalse);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000096'>
+                <a name='M000096'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>context.register_namespaces(["prefix:uri"]) &rarr; self<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Register the specified namespaces in this context. There are three
+                  different forms that libxml accepts. These include a string, an array of
+                  strings, or a hash table:
+                  </p>
+                  <pre>context.register_namespaces('xi:http://www.w3.org/2001/XInclude')&#x000A;context.register_namespaces(['xlink:http://www.w3.org/1999/xlink',&#x000A;                             'xi:http://www.w3.org/2001/XInclude')&#x000A;context.register_namespaces('xlink' =&gt; 'http://www.w3.org/1999/xlink',&#x000A;                               'xi' =&gt; 'http://www.w3.org/2001/XInclude')</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000096-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000096-source'>static VALUE rxml_xpath_context_register_namespaces(VALUE self, VALUE nslist)&#x000A;{&#x000A;  char *cp;&#x000A;  long i;&#x000A;  VALUE rprefix, ruri;&#x000A;&#x000A;  /* Need to loop through the 2nd argument and iterate through the&#x000A;   * list of namespaces that we want to allow */&#x000A;  switch (TYPE(nslist))&#x000A;  {&#x000A;  case T_STRING:&#x000A;    cp = strchr(StringValuePtr(nslist), (int) ':');&#x000A;    if (cp == NULL)&#x000A;    {&#x000A;      rprefix = nslist;&#x000A;      ruri = Qnil;&#x000A;    }&#x000A;    else&#x000A;    {&#x000A;      rprefix = rb_str_new(StringValuePtr(nslist), (int) ((long) cp&#x000A;          - (long) StringValuePtr(nslist)));&#x000A;      ruri = rb_str_new2(&amp;cp[1]);&#x000A;    }&#x000A;    /* Should test the results of this */&#x000A;    rxml_xpath_context_register_namespace(self, rprefix, ruri);&#x000A;    break;&#x000A;  case T_ARRAY:&#x000A;    for (i = 0; i &lt; RARRAY_LEN(nslist); i++)&#x000A;    {&#x000A;      rxml_xpath_context_register_namespaces(self, RARRAY_PTR(nslist)[i]);&#x000A;    }&#x000A;    break;&#x000A;  case T_HASH:&#x000A;    st_foreach(RHASH_TBL(nslist), iterate_ns_hash, self);&#x000A;    break;&#x000A;  default:&#x000A;    rb_raise(&#x000A;        rb_eArgError,&#x000A;        &quot;Invalid argument type, only accept string, array of strings, or an array of arrays&quot;);&#x000A;  }&#x000A;  return self;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000097'>
+                <a name='M000097'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>context.register_namespaces_from_node(node) &rarr; self<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Helper method to read in namespaces defined on a node.
+                  </p>
+                  <pre>doc = XML::Document.string('&lt;header&gt;&lt;first&gt;hi&lt;/first&gt;&lt;/header&gt;')&#x000A;context = XPath::Context.new(doc)&#x000A;context.register_namespaces_from_node(doc.root)</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000097-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000097-source'>static VALUE rxml_xpath_context_register_namespaces_from_node(VALUE self,&#x000A;    VALUE node)&#x000A;{&#x000A;  xmlXPathContextPtr xctxt;&#x000A;  xmlNodePtr xnode;&#x000A;  xmlNsPtr *xnsArr;&#x000A;&#x000A;  Data_Get_Struct(self, xmlXPathContext, xctxt);&#x000A;&#x000A;  if (rb_obj_is_kind_of(node, cXMLDocument) == Qtrue)&#x000A;  {&#x000A;    xmlDocPtr xdoc;&#x000A;    Data_Get_Struct(node, xmlDoc, xdoc);&#x000A;    xnode = xmlDocGetRootElement(xdoc);&#x000A;  }&#x000A;  else if (rb_obj_is_kind_of(node, cXMLNode) == Qtrue)&#x000A;  {&#x000A;    Data_Get_Struct(node, xmlNode, xnode);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rb_raise(rb_eTypeError, &quot;The first argument must be a document or node.&quot;);&#x000A;  }&#x000A;&#x000A;  xnsArr = xmlGetNsList(xnode-&gt;doc, xnode);&#x000A;&#x000A;  if (xnsArr)&#x000A;  {&#x000A;    xmlNsPtr xns = *xnsArr;&#x000A;&#x000A;    while (xns)&#x000A;    {&#x000A;      /* If there is no prefix, then this is the default namespace.&#x000A;       Skip it for now. */&#x000A;      if (xns-&gt;prefix)&#x000A;      {&#x000A;        VALUE prefix = rb_str_new2((const char*)xns-&gt;prefix);&#x000A;        VALUE uri = rb_str_new2((const char*)xns-&gt;href);&#x000A;        rxml_xpath_context_register_namespace(self, prefix, uri);&#x000A;      }&#x000A;      xns = xns-&gt;next;&#x000A;    }&#x000A;    xmlFree(xnsArr);&#x000A;  }&#x000A;&#x000A;  return self;&#x000A;}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
