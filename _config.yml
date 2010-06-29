@@ -2,3 +2,4 @@ auto: true
 server: true
 pygments: true
 permalink: none
+exclude: README.markdown
