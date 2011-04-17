@@ -1,0 +1,964 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: LibXML::XML::Document [LibXML]</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          LibXML::XML::Document
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../../files/ext/libxml/libxml_c.html">ext/libxml/libxml.c</a>
+          </li>
+          <li class='other'>
+            <a href="../../../files/lib/libxml/document_rb.html">lib/libxml/document.rb</a>
+          </li>
+          <li>
+            <a class='show' href='#' onclick='this.parentNode.parentNode.className += " expanded"; this.parentNode.removeChild(this); return false'>show all</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Object</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <p>
+            The <a href="Document.html">XML::Document</a> class provides a tree based
+            API for working with xml documents. You may directly create a document and
+            manipulate it, or create a document from a data source by using an <a
+            href="Parser.html">XML::Parser</a> object.
+            </p>
+            <p>
+            To read a document from a file:
+            </p>
+            <pre>doc = XML::Document.file('my_file')</pre>
+            <p>
+            To use a parser to read a document:
+            </p>
+            <pre>parser = XML::Parser.file('my_file')&#x000A;doc = parser.parse</pre>
+            <p>
+            To create a document from scratch:
+            </p>
+            <pre>doc = XML::Document.new()&#x000A;doc.root = XML::Node.new('root_node')&#x000A;doc.root &lt;&lt; XML::Node.new('elem1')&#x000A;doc.save(filename, :indent =&gt; true, :encoding =&gt; 'UTF-8')</pre>
+            <p>
+            To write a document to a file:
+            </p>
+            <pre>doc = XML::Document.new()&#x000A;doc.root = XML::Node.new('root_node')&#x000A;root = doc.root&#x000A;&#x000A;root &lt;&lt; elem1 = XML::Node.new('elem1')&#x000A;elem1['attr1'] = 'val1'&#x000A;elem1['attr2'] = 'val2'&#x000A;&#x000A;root &lt;&lt; elem2 = XML::Node.new('elem2')&#x000A;elem2['attr1'] = 'val1'&#x000A;elem2['attr2'] = 'val2'&#x000A;&#x000A;root &lt;&lt; elem3 = XML::Node.new('elem3')&#x000A;elem3 &lt;&lt; elem4 = XML::Node.new('elem4')&#x000A;elem3 &lt;&lt; elem5 = XML::Node.new('elem5')&#x000A;&#x000A;elem5 &lt;&lt; elem6 = XML::Node.new('elem6')&#x000A;elem6 &lt;&lt; 'Content for element 6'&#x000A;&#x000A;elem3['attr'] = 'baz'&#x000A;&#x000A;doc.save(filename, :indent =&gt; true, :encoding =&gt; 'UTF-8')</pre>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000403">document</a></li>
+              <li>
+                <a href="#M000404">file<br />
+                :options</a>
+              </li>
+              <li>
+                <a href="#M000405">io<br />
+                :options<br />
+                :base_uri="http://libxml.org")</a>
+              </li>
+              <li><a href="#M000370">initialize</a></li>
+              <li>
+                <a href="#M000406">string<br />
+                :options<br />
+                :base_uri="http://libxml.org")</a>
+              </li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000371">child</a></li>
+              <li><a href="#M000372">child?</a></li>
+              <li><a href="#M000373">compression</a></li>
+              <li><a href="#M000374">compression=</a></li>
+              <li><a href="#M000375">compression?</a></li>
+              <li><a href="#M000407">context</a></li>
+              <li><a href="#M000376">debug</a></li>
+              <li><a href="#M000377">encoding</a></li>
+              <li><a href="#M000379">encoding=</a></li>
+              <li><a href="#M000408">find</a></li>
+              <li><a href="#M000409">find_first</a></li>
+              <li><a href="#M000380">import</a></li>
+              <li><a href="#M000381">last</a></li>
+              <li><a href="#M000382">last?</a></li>
+              <li><a href="#M000383">next</a></li>
+              <li><a href="#M000384">next?</a></li>
+              <li><a href="#M000385">type</a></li>
+              <li><a href="#M000410">node_type_name</a></li>
+              <li><a href="#M000386">order_elements!</a></li>
+              <li><a href="#M000387">parent</a></li>
+              <li><a href="#M000388">parent?</a></li>
+              <li><a href="#M000389">prev</a></li>
+              <li><a href="#M000390">prev?</a></li>
+              <li><a href="#M000378">rb_encoding</a></li>
+              <li><a href="#M000391">root</a></li>
+              <li><a href="#M000392">root=</a></li>
+              <li><a href="#M000393">save</a></li>
+              <li><a href="#M000394">standalone?</a></li>
+              <li><a href="#M000395">to_s</a></li>
+              <li><a href="#M000396">url</a></li>
+              <li><a href="#M000400">validate</a></li>
+              <li><a href="#M000402">validate_schema</a></li>
+              <li><a href="#M000401">validate_schema</a></li>
+              <li><a href="#M000397">version</a></li>
+              <li><a href="#M000398">xhtml?</a></li>
+              <li><a href="#M000399">xinclude</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='method public-class' id='method-M000403'>
+                <a name='M000403'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML::Document.document(document) &rarr; XML::Document<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Creates a new document based on the specified document.
+                  </p>
+                  <p>
+                  Parameters:
+                  </p>
+                  <pre>document - A preparsed document.</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000403-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000403-source'>    <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 14</span>&#x000A;14:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">document</span>(<span class="ruby-identifier">value</span>)&#x000A;15:         <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">document</span>(<span class="ruby-identifier">value</span>).<span class="ruby-identifier">parse</span>&#x000A;16:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000404'>
+                <a name='M000404'></a>
+                <div class='synopsis'>
+                  <span class='name'>
+                    XML::Document.file(path) &rarr; XML::Document<br />
+                    XML::Document.file(path, :encoding => XML::Encoding::UTF_8,<br />
+                    :options => XML::Parser::Options::NOENT) &rarr; XML::Document<br />
+                  </span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Creates a new document from the specified file or uri.
+                  </p>
+                  <p>
+                  You may provide an optional hash table to control how the parsing is
+                  performed. Valid options are:
+                  </p>
+                  <pre>encoding - The document encoding, defaults to nil. Valid values&#x000A;           are the encoding constants defined on XML::Encoding.&#x000A;options - Parser options.  Valid values are the constants defined on&#x000A;          XML::Parser::Options.  Mutliple options can be combined&#x000A;          by using Bitwise OR (|).</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000404-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000404-source'>    <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 33</span>&#x000A;33:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})&#x000A;34:         <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>&#x000A;35:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000405'>
+                <a name='M000405'></a>
+                <div class='synopsis'>
+                  <span class='name'>
+                    XML::Document.io(io) &rarr; XML::Document<br />
+                    XML::Document.io(io, :encoding => XML::Encoding::UTF_8,<br />
+                    :options => XML::Parser::Options::NOENT<br />
+                    :base_uri="http://libxml.org") &rarr; XML::Document<br />
+                  </span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Creates a new document from the specified io object.
+                  </p>
+                  <p>
+                  Parameters:
+                  </p>
+                  <pre>io - io object that contains the xml to parser&#x000A;base_uri - The base url for the parsed document.&#x000A;encoding - The document encoding, defaults to nil. Valid values&#x000A;           are the encoding constants defined on XML::Encoding.&#x000A;options - Parser options.  Valid values are the constants defined on&#x000A;          XML::Parser::Options.  Mutliple options can be combined&#x000A;          by using Bitwise OR (|).</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000405-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000405-source'>    <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 54</span>&#x000A;54:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})&#x000A;55:         <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>&#x000A;56:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000370'>
+                <a name='M000370'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML::Document.initialize(xml_version = 1.0) &rarr; document<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Initializes a new <a href="Document.html">XML::Document</a>, optionally
+                  specifying the <a href="../XML.html">XML</a> version.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000370-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000370-source'>static VALUE rxml_document_initialize(int argc, VALUE *argv, VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  VALUE xmlver;&#x000A;&#x000A;  switch (argc)&#x000A;  {&#x000A;  case 0:&#x000A;    xmlver = rb_str_new2(&quot;1.0&quot;);&#x000A;    break;&#x000A;  case 1:&#x000A;    rb_scan_args(argc, argv, &quot;01&quot;, &amp;xmlver);&#x000A;    break;&#x000A;  default:&#x000A;    rb_raise(rb_eArgError, &quot;wrong number of arguments (need 0 or 1)&quot;);&#x000A;  }&#x000A;&#x000A;  Check_Type(xmlver, T_STRING);&#x000A;  xdoc = xmlNewDoc((xmlChar*) StringValuePtr(xmlver));&#x000A;  xdoc-&gt;_private = (void*) self;&#x000A;  DATA_PTR(self) = xdoc;&#x000A;&#x000A;  return self;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000406'>
+                <a name='M000406'></a>
+                <div class='synopsis'>
+                  <span class='name'>
+                    XML::Document.string(string)<br />
+                    XML::Document.string(string, :encoding => XML::Encoding::UTF_8,<br />
+                    :options => XML::Parser::Options::NOENT<br />
+                    :base_uri="http://libxml.org") &rarr; XML::Document<br />
+                  </span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Creates a new document from the specified string.
+                  </p>
+                  <p>
+                  You may provide an optional hash table to control how the parsing is
+                  performed. Valid options are:
+                  </p>
+                  <pre>base_uri - The base url for the parsed document.&#x000A;encoding - The document encoding, defaults to nil. Valid values&#x000A;           are the encoding constants defined on XML::Encoding.&#x000A;options - Parser options.  Valid values are the constants defined on&#x000A;          XML::Parser::Options.  Mutliple options can be combined&#x000A;          by using Bitwise OR (|).</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000406-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000406-source'>    <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 75</span>&#x000A;75:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})&#x000A;76:         <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>&#x000A;77:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='method public-instance' id='method-M000371'>
+                <a name='M000371'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.child &rarr; node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Get this document&#8217;s child node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000371-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000371-source'>static VALUE rxml_document_child_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;children == NULL)&#x000A;    return (Qnil);&#x000A;&#x000A;  return rxml_node_wrap(xdoc-&gt;children);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000372'>
+                <a name='M000372'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.child? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether this document has a child node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000372-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000372-source'>static VALUE rxml_document_child_q(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;children == NULL)&#x000A;    return (Qfalse);&#x000A;  else&#x000A;    return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000373'>
+                <a name='M000373'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.compression &rarr; num<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain this document&#8217;s compression mode identifier.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000373-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000373-source'>static VALUE rxml_document_compression_get(VALUE self)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  int compmode;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  compmode = xmlGetDocCompressMode(xdoc);&#x000A;  if (compmode == -1)&#x000A;  return(Qnil);&#x000A;  else&#x000A;  return(INT2NUM(compmode));&#x000A;#else&#x000A;  rb_warn(&quot;libxml not compiled with zlib support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000374'>
+                <a name='M000374'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.compression = num<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Set this document&#8217;s compression mode.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000374-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000374-source'>static VALUE rxml_document_compression_set(VALUE self, VALUE num)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  int compmode;&#x000A;  Check_Type(num, T_FIXNUM);&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc == NULL)&#x000A;  {&#x000A;    return(Qnil);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlSetDocCompressMode(xdoc, NUM2INT(num));&#x000A;&#x000A;    compmode = xmlGetDocCompressMode(xdoc);&#x000A;    if (compmode == -1)&#x000A;    return(Qnil);&#x000A;    else&#x000A;    return(INT2NUM(compmode));&#x000A;  }&#x000A;#else&#x000A;  rb_warn(&quot;libxml compiled without zlib support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000375'>
+                <a name='M000375'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.compression? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether this document is compressed.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000375-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000375-source'>static VALUE rxml_document_compression_q(VALUE self)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;compression != -1)&#x000A;  return(Qtrue);&#x000A;  else&#x000A;  return(Qfalse);&#x000A;#else&#x000A;  rb_warn(&quot;libxml compiled without zlib support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000407'>
+                <a name='M000407'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.context(namespaces=nil) &rarr; XPath::Context<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns a new XML::XPathContext for the document.
+                  </p>
+                  <p>
+                  <a href="Namespaces.html">Namespaces</a> is an optional array of XML::NS
+                  objects
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000407-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000407-source'>    <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 85</span>&#x000A;85:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">context</span>(<span class="ruby-identifier">nslist</span> = <span class="ruby-keyword kw">nil</span>)&#x000A;86:         <span class="ruby-identifier">context</span> = <span class="ruby-constant">XPath</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>)&#x000A;87:         <span class="ruby-identifier">context</span>.<span class="ruby-identifier">node</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">root</span>&#x000A;88:         <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces_from_node</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">root</span>)&#x000A;89:         <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces</span>(<span class="ruby-identifier">nslist</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">nslist</span>&#x000A;90:         <span class="ruby-identifier">context</span>&#x000A;91:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000376'>
+                <a name='M000376'></a>
+                <div class='synopsis'>
+                  <span class='name'>node.debug &rarr; true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Print libxml debugging information to stdout. Requires that libxml was
+                  compiled with debugging enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000376-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000376-source'>static VALUE rxml_document_debug(VALUE self)&#x000A;{&#x000A;#ifdef LIBXML_DEBUG_ENABLED&#x000A;  xmlDocPtr xdoc;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  xmlDebugDumpDocument(NULL, xdoc);&#x000A;  return Qtrue;&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without debugging support.&quot;)&#x000A;  return Qfalse;&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000377'>
+                <a name='M000377'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.encoding &rarr; XML::Encoding::UTF_8<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns the <a href="../../LibXML.html">LibXML</a> encoding constant
+                  specified by this document.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000377-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000377-source'>static VALUE rxml_document_encoding_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  const char *xencoding;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  xencoding = (const char*)xdoc-&gt;encoding;&#x000A;  return INT2NUM(xmlParseCharEncoding(xencoding));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000379'>
+                <a name='M000379'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.encoding = XML::Encoding::UTF_8<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Set the encoding for this document.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000379-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000379-source'>static VALUE rxml_document_encoding_set(VALUE self, VALUE encoding)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  const char* xencoding = xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(encoding));&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;encoding != NULL)&#x000A;    xmlFree((xmlChar *) xdoc-&gt;encoding);&#x000A;&#x000A;  xdoc-&gt;encoding = xmlStrdup((xmlChar *)xencoding);&#x000A;  return self;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000408'>
+                <a name='M000408'></a>
+                <div class='synopsis'>
+                  <span class='name'>find</span>
+                  <span class='arguments'>(xpath, nslist = nil)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Return the nodes matching the specified xpath expression, optionally using
+                  the specified namespace. For more information about working with
+                  namespaces, please refer to the <a href="XPath.html">XML::XPath</a>
+                  documentation.
+                  </p>
+                  <p>
+                  Parameters:
+                  </p>
+                  <ul>
+                  <li>xpath - The xpath expression as a string
+                  
+                  </li>
+                  <li>namespaces - An optional list of namespaces (see <a
+                  href="XPath.html">XML::XPath</a> for information).
+                  
+                  </li>
+                  <li>Returns - <a href="XPath/Object.html">XML::XPath::Object</a>
+                  
+                  </li>
+                  </ul>
+                  <pre>document.find('/foo', 'xlink:http://www.w3.org/1999/xlink')</pre>
+                  <p>
+                  IMPORTANT - The returned XML::Node::Set must be freed before its associated
+                  document. In a running Ruby program this will happen automatically via
+                  Ruby&#8217;s mark and sweep garbage collector. However, if the program
+                  exits, Ruby does not guarantee the order in which objects are freed (see <a
+                  href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700">blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700</a>).
+                  As a result, the associated document may be freed before the node list,
+                  which will cause a segmentation fault. To avoid this, use the following
+                  (non-ruby like) coding style:
+                  </p>
+                  <pre>nodes = doc.find('/header')&#x000A;nodes.each do |node|&#x000A;  ... do stuff ...&#x000A;end</pre>
+                  <p>
+                  # nodes = nil # GC.start
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000408-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000408-source'>     <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 120</span>&#x000A;120:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword kw">nil</span>)&#x000A;121:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">context</span>(<span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>)&#x000A;122:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000409'>
+                <a name='M000409'></a>
+                <div class='synopsis'>
+                  <span class='name'>find_first</span>
+                  <span class='arguments'>(xpath, nslist = nil)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Return the first node matching the specified xpath expression. For more
+                  information, please refer to the documentation for <a
+                  href="Document.html#M000408">XML::Document#find</a>.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000409-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000409-source'>     <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 127</span>&#x000A;127:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_first</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword kw">nil</span>)&#x000A;128:         <span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">first</span>&#x000A;129:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000380'>
+                <a name='M000380'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.import(node) &rarr; XML::Node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Creates a copy of the node that can be inserted into the current document.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000380-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000380-source'>static VALUE rxml_document_import(VALUE self, VALUE node)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  xmlNodePtr xnode, xresult;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  Data_Get_Struct(node, xmlNode, xnode);&#x000A;&#x000A;  xresult = xmlDocCopyNode(xnode, xdoc, 1);&#x000A;&#x000A;  if (xresult == NULL)&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;&#x000A;  return rxml_node_wrap(xresult);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000381'>
+                <a name='M000381'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.last &rarr; node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the last node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000381-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000381-source'>static VALUE rxml_document_last_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;last == NULL)&#x000A;    return (Qnil);&#x000A;&#x000A;  return rxml_node_wrap(xdoc-&gt;last);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000382'>
+                <a name='M000382'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.last? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether there is a last node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000382-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000382-source'>static VALUE rxml_document_last_q(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;last == NULL)&#x000A;    return (Qfalse);&#x000A;  else&#x000A;    return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000383'>
+                <a name='M000383'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.next &rarr; node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the next node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000383-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000383-source'>static VALUE rxml_document_next_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;next == NULL)&#x000A;    return (Qnil);&#x000A;&#x000A;  return rxml_node_wrap(xdoc-&gt;next);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000384'>
+                <a name='M000384'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.next? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether there is a next node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000384-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000384-source'>static VALUE rxml_document_next_q(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;next == NULL)&#x000A;    return (Qfalse);&#x000A;  else&#x000A;    return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000385'>
+                <a name='M000385'></a>
+                <div class='synopsis'>
+                  <span class='name'>node.type &rarr; num<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain this node&#8217;s type identifier.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000385-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000385-source'>static VALUE rxml_document_node_type(VALUE self)&#x000A;{&#x000A;  xmlNodePtr xnode;&#x000A;  Data_Get_Struct(self, xmlNode, xnode);&#x000A;  return (INT2NUM(xnode-&gt;type));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000410'>
+                <a name='M000410'></a>
+                <div class='synopsis'>
+                  <span class='name'>node_type_name</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns this node&#8217;s type name
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000410-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000410-source'>     <span class="ruby-comment cmt"># File lib/libxml/document.rb, line 132</span>&#x000A;132:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node_type_name</span>&#x000A;133:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">node_type</span>&#x000A;134:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCUMENT_NODE</span>&#x000A;135:             <span class="ruby-value str">'document_xml'</span>&#x000A;136:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCB_DOCUMENT_NODE</span>&#x000A;137:             <span class="ruby-value str">'document_docbook'</span>&#x000A;138:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML_DOCUMENT_NODE</span>&#x000A;139:             <span class="ruby-value str">'document_html'</span>&#x000A;140:           <span class="ruby-keyword kw">else</span>&#x000A;141:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">UnknownType</span>, <span class="ruby-value str">&quot;Unknown node type: %n&quot;</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_type</span>);&#x000A;142:         <span class="ruby-keyword kw">end</span>&#x000A;143:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000386'>
+                <a name='M000386'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.order_elements! <br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Call this routine to speed up <a href="XPath.html">XPath</a> computation on
+                  static documents. This stamps all the element nodes with the document
+                  order.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000386-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000386-source'>static VALUE rxml_document_order_elements(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  return LONG2FIX(xmlXPathOrderDocElems(xdoc));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000387'>
+                <a name='M000387'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.parent &rarr; node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the parent node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000387-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000387-source'>static VALUE rxml_document_parent_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;parent == NULL)&#x000A;    return (Qnil);&#x000A;&#x000A;  return rxml_node_wrap(xdoc-&gt;parent);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000388'>
+                <a name='M000388'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.parent? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether there is a parent node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000388-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000388-source'>static VALUE rxml_document_parent_q(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;parent == NULL)&#x000A;    return (Qfalse);&#x000A;  else&#x000A;    return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000389'>
+                <a name='M000389'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.prev &rarr; node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the previous node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000389-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000389-source'>static VALUE rxml_document_prev_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;prev == NULL)&#x000A;    return (Qnil);&#x000A;&#x000A;  return rxml_node_wrap(xdoc-&gt;prev);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000390'>
+                <a name='M000390'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.prev? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether there is a previous node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000390-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000390-source'>static VALUE rxml_document_prev_q(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  if (xdoc-&gt;prev == NULL)&#x000A;    return (Qfalse);&#x000A;  else&#x000A;    return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000378'>
+                <a name='M000378'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.rb_encoding &rarr; Encoding<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns the Ruby encoding specified by this document (available on Ruby
+                  1.9.x and higher).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000378-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000378-source'>static VALUE rxml_document_rb_encoding_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  const char *xencoding;&#x000A;  VALUE encoding;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;&#x000A;  xencoding = (const char*)xdoc-&gt;encoding;&#x000A;  return rxml_xml_encoding_to_rb_encoding(mXMLEncoding, xmlParseCharEncoding(xencoding));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000391'>
+                <a name='M000391'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.root &rarr; node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the root node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000391-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000391-source'>static VALUE rxml_document_root_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  xmlNodePtr root;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  root = xmlDocGetRootElement(xdoc);&#x000A;&#x000A;  if (root == NULL)&#x000A;    return (Qnil);&#x000A;&#x000A;  return rxml_node_wrap(root);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000392'>
+                <a name='M000392'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.root = node<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Set the root node.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000392-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000392-source'>static VALUE rxml_document_root_set(VALUE self, VALUE node)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;  xmlNodePtr xroot, xnode;&#x000A;&#x000A;  if (rb_obj_is_kind_of(node, cXMLNode) == Qfalse)&#x000A;    rb_raise(rb_eTypeError, &quot;must pass an XML::Node type object&quot;);&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  Data_Get_Struct(node, xmlNode, xnode);&#x000A;&#x000A;  xroot = xmlDocSetRootElement(xdoc, xnode);&#x000A;  return node;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000393'>
+                <a name='M000393'></a>
+                <div class='synopsis'>
+                  <span class='name'>
+                    document.save(filename) &rarr; int<br />
+                    document.save(filename, :indent => true, :encoding => 'UTF-8') &rarr; int<br />
+                  </span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Saves a document to a file. You may provide an optional hash table to
+                  control how the string is generated. Valid options are:
+                  </p>
+                  <p>
+                  :indent - Specifies if the string should be indented. The default value is
+                  true. Note that indentation is only added if both :indent is true and <a
+                  href="../XML.html#M000044">XML.indent_tree_output</a> is true. If :indent
+                  is set to false, then both indentation and line feeds are removed from the
+                  result.
+                  </p>
+                  <p>
+                  :encoding - Specifies the output encoding of the string. It defaults to the
+                  original encoding of the document (see <a
+                  href="Document.html#M000377">encoding</a>. To override the orginal
+                  encoding, use one of the <a href="Encoding.html">XML::Encoding</a> encoding
+                  constants.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000393-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000393-source'>static VALUE rxml_document_save(int argc, VALUE *argv, VALUE self)&#x000A;{ &#x000A;  VALUE options = Qnil;&#x000A;  VALUE filename = Qnil;&#x000A;  xmlDocPtr xdoc;&#x000A;  int indent = 1;&#x000A;  const char *xfilename;&#x000A;  const char *xencoding;&#x000A;  int length;&#x000A;&#x000A;  rb_scan_args(argc, argv, &quot;11&quot;, &amp;filename, &amp;options);&#x000A;&#x000A;  Check_Type(filename, T_STRING);&#x000A;  xfilename = StringValuePtr(filename);&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  xencoding = xdoc-&gt;encoding;&#x000A;&#x000A;  if (!NIL_P(options))&#x000A;  {&#x000A;    VALUE rencoding, rindent;&#x000A;    Check_Type(options, T_HASH);&#x000A;    rencoding = rb_hash_aref(options, ID2SYM(rb_intern(&quot;encoding&quot;)));&#x000A;    rindent = rb_hash_aref(options, ID2SYM(rb_intern(&quot;indent&quot;)));&#x000A;&#x000A;    if (rindent == Qfalse)&#x000A;      indent = 0;&#x000A;&#x000A;    if (rencoding != Qnil)&#x000A;    {&#x000A;      xencoding = xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(rencoding));&#x000A;      if (!xencoding)&#x000A;        rb_raise(rb_eArgError, &quot;Unknown encoding value: %d&quot;, NUM2INT(rencoding));&#x000A;    }&#x000A;  }&#x000A;&#x000A;  length = xmlSaveFormatFileEnc(xfilename, xdoc, xencoding, indent);&#x000A;&#x000A;  if (length == -1)&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;  &#x000A;  return (INT2NUM(length));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000394'>
+                <a name='M000394'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.standalone? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether this is a standalone document.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000394-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000394-source'>static VALUE rxml_document_standalone_q(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  if (xdoc-&gt;standalone)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000395'>
+                <a name='M000395'></a>
+                <div class='synopsis'>
+                  <span class='name'>
+                    document.to_s &rarr; "string"<br />
+                    document.to_s(:indent => true, :encoding => 'UTF-8') &rarr; "string"<br />
+                  </span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Converts a document, and all of its children, to a string representation.
+                  You may provide an optional hash table to control how the string is
+                  generated. Valid options are:
+                  </p>
+                  <p>
+                  :indent - Specifies if the string should be indented. The default value is
+                  true. Note that indentation is only added if both :indent is true and <a
+                  href="../XML.html#M000044">XML.indent_tree_output</a> is true. If :indent
+                  is set to false, then both indentation and line feeds are removed from the
+                  result.
+                  </p>
+                  <p>
+                  :encoding - Specifies the output encoding of the string. It defaults to
+                  XML::Encoding::UTF8. To change it, use one of the <a
+                  href="Encoding.html">XML::Encoding</a> encoding constants.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000395-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000395-source'>static VALUE rxml_document_to_s(int argc, VALUE *argv, VALUE self)&#x000A;{ &#x000A;  VALUE result;&#x000A;  VALUE options = Qnil;&#x000A;  xmlDocPtr xdoc;&#x000A;  int indent = 1;&#x000A;  const char *xencoding = &quot;UTF-8&quot;;&#x000A;  xmlChar *buffer; &#x000A;  int length;&#x000A;&#x000A;  rb_scan_args(argc, argv, &quot;01&quot;, &amp;options);&#x000A;&#x000A;  if (!NIL_P(options))&#x000A;  {&#x000A;    VALUE rencoding, rindent;&#x000A;    Check_Type(options, T_HASH);&#x000A;    rencoding = rb_hash_aref(options, ID2SYM(rb_intern(&quot;encoding&quot;)));&#x000A;    rindent = rb_hash_aref(options, ID2SYM(rb_intern(&quot;indent&quot;)));&#x000A;&#x000A;    if (rindent == Qfalse)&#x000A;      indent = 0;&#x000A;&#x000A;    if (rencoding != Qnil)&#x000A;    {&#x000A;      xencoding = xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(rencoding));&#x000A;      if (!xencoding)&#x000A;        rb_raise(rb_eArgError, &quot;Unknown encoding value: %d&quot;, NUM2INT(rencoding));&#x000A;    }&#x000A;  }&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  xmlDocDumpFormatMemoryEnc(xdoc, &amp;buffer, &amp;length, xencoding, indent);&#x000A;&#x000A;  result = rxml_str_new2((const char*) buffer, xencoding);&#x000A;  xmlFree(buffer);&#x000A;  return result;&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000396'>
+                <a name='M000396'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.url &rarr; "url"<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain this document&#8217;s source URL, if any.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000396-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000396-source'>static VALUE rxml_document_url_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  if (xdoc-&gt;URL == NULL)&#x000A;    return (Qnil);&#x000A;  else&#x000A;    return (rxml_str_new2((const char*) xdoc-&gt;URL, xdoc-&gt;encoding));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000400'>
+                <a name='M000400'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.validate(dtd) &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Validate this document against the specified XML::DTD.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000400-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000400-source'>static VALUE rxml_document_validate_dtd(VALUE self, VALUE dtd)&#x000A;{&#x000A;  VALUE error = Qnil;&#x000A;  xmlValidCtxt ctxt;&#x000A;  xmlDocPtr xdoc;&#x000A;  xmlDtdPtr xdtd;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  Data_Get_Struct(dtd, xmlDtd, xdtd);&#x000A;&#x000A;  ctxt.userData = &amp;error;&#x000A;&#x000A;  ctxt.nodeNr = 0;&#x000A;  ctxt.nodeTab = NULL;&#x000A;  ctxt.vstateNr = 0;&#x000A;  ctxt.vstateTab = NULL;&#x000A;&#x000A;  if (xmlValidateDtd(&amp;ctxt, xdoc, xdtd))&#x000A;  {&#x000A;    return (Qtrue);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;    return Qfalse;&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000402'>
+                <a name='M000402'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.validate_schema(relaxng) &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Validate this document against the specified <a
+                  href="RelaxNG.html">XML::RelaxNG</a>.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000402-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000402-source'>static VALUE rxml_document_validate_relaxng(VALUE self, VALUE relaxng)&#x000A;{&#x000A;  xmlRelaxNGValidCtxtPtr vptr;&#x000A;  xmlDocPtr xdoc;&#x000A;  xmlRelaxNGPtr xrelaxng;&#x000A;  int is_invalid;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  Data_Get_Struct(relaxng, xmlRelaxNG, xrelaxng);&#x000A;&#x000A;  vptr = xmlRelaxNGNewValidCtxt(xrelaxng);&#x000A;&#x000A;  is_invalid = xmlRelaxNGValidateDoc(vptr, xdoc);&#x000A;  xmlRelaxNGFreeValidCtxt(vptr);&#x000A;  if (is_invalid)&#x000A;  {&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;    return Qfalse;&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    return Qtrue;&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000401'>
+                <a name='M000401'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.validate_schema(schema) &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Validate this document against the specified <a
+                  href="Schema.html">XML::Schema</a>.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000401-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000401-source'>static VALUE rxml_document_validate_schema(VALUE self, VALUE schema)&#x000A;{&#x000A;  xmlSchemaValidCtxtPtr vptr;&#x000A;  xmlDocPtr xdoc;&#x000A;  xmlSchemaPtr xschema;&#x000A;  int is_invalid;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  Data_Get_Struct(schema, xmlSchema, xschema);&#x000A;&#x000A;  vptr = xmlSchemaNewValidCtxt(xschema);&#x000A;&#x000A;  is_invalid = xmlSchemaValidateDoc(vptr, xdoc);&#x000A;  xmlSchemaFreeValidCtxt(vptr);&#x000A;  if (is_invalid)&#x000A;  {&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;    return Qfalse;&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    return Qtrue;&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000397'>
+                <a name='M000397'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.version &rarr; "version"<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the <a href="../XML.html">XML</a> version specified by this
+                  document.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000397-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000397-source'>static VALUE rxml_document_version_get(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  if (xdoc-&gt;version == NULL)&#x000A;    return (Qnil);&#x000A;  else&#x000A;    return (rxml_str_new2((const char*) xdoc-&gt;version, xdoc-&gt;encoding));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000398'>
+                <a name='M000398'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.xhtml? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether this is an XHTML document.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000398-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000398-source'>static VALUE rxml_document_xhtml_q(VALUE self)&#x000A;{&#x000A;  xmlDocPtr xdoc;&#x000A;        xmlDtdPtr xdtd;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;        xdtd = xmlGetIntSubset(xdoc);&#x000A;  if (xdtd != NULL &amp;&amp; xmlIsXHTML(xdtd-&gt;SystemID, xdtd-&gt;ExternalID) &gt; 0)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000399'>
+                <a name='M000399'></a>
+                <div class='synopsis'>
+                  <span class='name'>document.xinclude &rarr; num<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Process xinclude directives in this document.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000399-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000399-source'>static VALUE rxml_document_xinclude(VALUE self)&#x000A;{&#x000A;#ifdef LIBXML_XINCLUDE_ENABLED&#x000A;  xmlDocPtr xdoc;&#x000A;&#x000A;  int ret;&#x000A;&#x000A;  Data_Get_Struct(self, xmlDoc, xdoc);&#x000A;  ret = xmlXIncludeProcess(xdoc);&#x000A;  if (ret &gt;= 0)&#x000A;  {&#x000A;    return(INT2NUM(ret));&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rxml_raise(&amp;xmlLastError);&#x000A;    return Qnil;&#x000A;  }&#x000A;#else&#x000A;  rb_warn(&#x000A;      &quot;libxml was compiled without XInclude support.  Please recompile libxml and ruby-libxml&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

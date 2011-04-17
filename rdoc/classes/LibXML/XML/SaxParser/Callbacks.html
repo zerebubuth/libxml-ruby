@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: LibXML::XML::SaxParser::Callbacks [LibXML]</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Module</span>
+          LibXML::XML::SaxParser::Callbacks
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../../../files/lib/libxml/sax_callbacks_rb.html">lib/libxml/sax_callbacks.rb</a>
+          </li>
+        </ol>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000355">on_cdata_block</a></li>
+              <li><a href="#M000356">on_characters</a></li>
+              <li><a href="#M000357">on_comment</a></li>
+              <li><a href="#M000358">on_end_document</a></li>
+              <li><a href="#M000359">on_end_element_ns</a></li>
+              <li><a href="#M000360">on_error</a></li>
+              <li><a href="#M000361">on_external_subset</a></li>
+              <li><a href="#M000362">on_has_external_subset</a></li>
+              <li><a href="#M000363">on_has_internal_subset</a></li>
+              <li><a href="#M000364">on_internal_subset</a></li>
+              <li><a href="#M000365">on_is_standalone</a></li>
+              <li><a href="#M000366">on_processing_instruction</a></li>
+              <li><a href="#M000367">on_reference</a></li>
+              <li><a href="#M000368">on_start_document</a></li>
+              <li><a href="#M000369">on_start_element_ns</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public instance methods</h2>
+              <div class='method public-instance' id='method-M000355'>
+                <a name='M000355'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_cdata_block</span>
+                  <span class='arguments'>(cdata)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a CDATA block event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000355-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000355-source'>   <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 8</span>&#x000A;8:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_cdata_block</span>(<span class="ruby-identifier">cdata</span>)&#x000A;9:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000356'>
+                <a name='M000356'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_characters</span>
+                  <span class='arguments'>(chars)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a characters event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000356-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000356-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 12</span>&#x000A;12:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_characters</span>(<span class="ruby-identifier">chars</span>)&#x000A;13:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000357'>
+                <a name='M000357'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_comment</span>
+                  <span class='arguments'>(msg)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a comment event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000357-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000357-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 16</span>&#x000A;16:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_comment</span>(<span class="ruby-identifier">msg</span>)&#x000A;17:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000358'>
+                <a name='M000358'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_end_document</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a end document event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000358-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000358-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 20</span>&#x000A;20:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_end_document</span>&#x000A;21:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000359'>
+                <a name='M000359'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_end_element_ns</span>
+                  <span class='arguments'>(name, prefix, uri)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a end element event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000359-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000359-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 24</span>&#x000A;24:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_end_element_ns</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">uri</span>)&#x000A;25:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000360'>
+                <a name='M000360'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_error</span>
+                  <span class='arguments'>(msg)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for parser errors.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000360-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000360-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 28</span>&#x000A;28:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_error</span>(<span class="ruby-identifier">msg</span>)&#x000A;29:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000361'>
+                <a name='M000361'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_external_subset</span>
+                  <span class='arguments'>(name, external_id, system_id)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for an external subset event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000361-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000361-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 32</span>&#x000A;32:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_external_subset</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">external_id</span>, <span class="ruby-identifier">system_id</span>)&#x000A;33:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000362'>
+                <a name='M000362'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_has_external_subset</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for an external subset notification event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000362-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000362-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 36</span>&#x000A;36:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_has_external_subset</span>&#x000A;37:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000363'>
+                <a name='M000363'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_has_internal_subset</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for an internal subset notification event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000363-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000363-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 40</span>&#x000A;40:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_has_internal_subset</span>&#x000A;41:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000364'>
+                <a name='M000364'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_internal_subset</span>
+                  <span class='arguments'>(name, external_id, system_id)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for an internal subset event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000364-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000364-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 44</span>&#x000A;44:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_internal_subset</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">external_id</span>, <span class="ruby-identifier">system_id</span>)&#x000A;45:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000365'>
+                <a name='M000365'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_is_standalone</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for &#8216;is standalone&#8217; event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000365-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000365-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 48</span>&#x000A;48:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_is_standalone</span>&#x000A;49:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000366'>
+                <a name='M000366'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_processing_instruction</span>
+                  <span class='arguments'>(target, data)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for an processing instruction event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000366-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000366-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 52</span>&#x000A;52:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_processing_instruction</span>(<span class="ruby-identifier">target</span>, <span class="ruby-identifier">data</span>)&#x000A;53:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000367'>
+                <a name='M000367'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_reference</span>
+                  <span class='arguments'>(name)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a reference event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000367-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000367-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 56</span>&#x000A;56:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_reference</span>(<span class="ruby-identifier">name</span>)&#x000A;57:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000368'>
+                <a name='M000368'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_start_document</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a start document event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000368-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000368-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 60</span>&#x000A;60:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_start_document</span>&#x000A;61:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000369'>
+                <a name='M000369'></a>
+                <div class='synopsis'>
+                  <span class='name'>on_start_element_ns</span>
+                  <span class='arguments'>(name, attributes, prefix, uri, namespaces)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Called for a start element event.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000369-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000369-source'>    <span class="ruby-comment cmt"># File lib/libxml/sax_callbacks.rb, line 64</span>&#x000A;64:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_start_element_ns</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">namespaces</span>)&#x000A;65:         <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: LibXML::XML [LibXML]</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Module</span>
+          LibXML::XML
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../files/ext/libxml/libxml_c.html">ext/libxml/libxml.c</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/ns_rb.html">lib/libxml/ns.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/reader_rb.html">lib/libxml/reader.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/properties_rb.html">lib/libxml/properties.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/sax_callbacks_rb.html">lib/libxml/sax_callbacks.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/namespaces_rb.html">lib/libxml/namespaces.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/sax_parser_rb.html">lib/libxml/sax_parser.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/attr_decl_rb.html">lib/libxml/attr_decl.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/tree_rb.html">lib/libxml/tree.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/attr_rb.html">lib/libxml/attr.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/document_rb.html">lib/libxml/document.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/error_rb.html">lib/libxml/error.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/parser_rb.html">lib/libxml/parser.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/node_rb.html">lib/libxml/node.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/namespace_rb.html">lib/libxml/namespace.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/xpath_object_rb.html">lib/libxml/xpath_object.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/html_parser_rb.html">lib/libxml/html_parser.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/libxml/attributes_rb.html">lib/libxml/attributes.rb</a>
+          </li>
+          <li>
+            <a class='show' href='#' onclick='this.parentNode.parentNode.className += " expanded"; this.parentNode.removeChild(this); return false'>show all</a>
+          </li>
+        </ol>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000066">catalog_dump</a></li>
+              <li><a href="#M000019">catalog_dump</a></li>
+              <li><a href="#M000067">catalog_remove</a></li>
+              <li><a href="#M000020">catalog_remove</a></li>
+              <li><a href="#M000068">check_lib_versions</a></li>
+              <li><a href="#M000021">check_lib_versions</a></li>
+              <li><a href="#M000069">debug_entities</a></li>
+              <li><a href="#M000022">debug_entities</a></li>
+              <li><a href="#M000070">debug_entities=</a></li>
+              <li><a href="#M000023">debug_entities=</a></li>
+              <li><a href="#M000071">default_compression</a></li>
+              <li><a href="#M000024">default_compression</a></li>
+              <li><a href="#M000025">default_compression=</a></li>
+              <li><a href="#M000072">default_compression=</a></li>
+              <li><a href="#M000073">default_keep_blanks</a></li>
+              <li><a href="#M000026">default_keep_blanks</a></li>
+              <li><a href="#M000027">default_keep_blanks=</a></li>
+              <li><a href="#M000074">default_keep_blanks=</a></li>
+              <li><a href="#M000077">default_line_numbers</a></li>
+              <li><a href="#M000030">default_line_numbers</a></li>
+              <li><a href="#M000031">default_line_numbers=</a></li>
+              <li><a href="#M000078">default_line_numbers=</a></li>
+              <li><a href="#M000028">default_load_external_dtd</a></li>
+              <li><a href="#M000075">default_load_external_dtd</a></li>
+              <li><a href="#M000029">default_load_external_dtd=</a></li>
+              <li><a href="#M000076">default_load_external_dtd=</a></li>
+              <li><a href="#M000079">default_options</a></li>
+              <li><a href="#M000032">default_options</a></li>
+              <li><a href="#M000033">default_pedantic_parser</a></li>
+              <li><a href="#M000080">default_pedantic_parser</a></li>
+              <li><a href="#M000081">default_pedantic_parser=</a></li>
+              <li><a href="#M000034">default_pedantic_parser=</a></li>
+              <li><a href="#M000035">default_substitute_entities</a></li>
+              <li><a href="#M000082">default_substitute_entities</a></li>
+              <li><a href="#M000036">default_substitute_entities=</a></li>
+              <li><a href="#M000083">default_substitute_entities=</a></li>
+              <li><a href="#M000037">default_tree_indent_string</a></li>
+              <li><a href="#M000084">default_tree_indent_string</a></li>
+              <li><a href="#M000038">default_tree_indent_string=</a></li>
+              <li><a href="#M000085">default_tree_indent_string=</a></li>
+              <li><a href="#M000039">default_validity_checking</a></li>
+              <li><a href="#M000086">default_validity_checking</a></li>
+              <li><a href="#M000040">default_validity_checking=</a></li>
+              <li><a href="#M000087">default_validity_checking=</a></li>
+              <li><a href="#M000041">default_warnings</a></li>
+              <li><a href="#M000088">default_warnings</a></li>
+              <li><a href="#M000089">default_warnings=</a></li>
+              <li><a href="#M000042">default_warnings=</a></li>
+              <li><a href="#M000001">enabled_automata?</a></li>
+              <li><a href="#M000048">enabled_automata?</a></li>
+              <li><a href="#M000002">enabled_c14n?</a></li>
+              <li><a href="#M000049">enabled_c14n?</a></li>
+              <li><a href="#M000050">enabled_catalog?</a></li>
+              <li><a href="#M000003">enabled_catalog?</a></li>
+              <li><a href="#M000004">enabled_debug?</a></li>
+              <li><a href="#M000051">enabled_debug?</a></li>
+              <li><a href="#M000005">enabled_docbook?</a></li>
+              <li><a href="#M000052">enabled_docbook?</a></li>
+              <li><a href="#M000053">enabled_ftp?</a></li>
+              <li><a href="#M000006">enabled_ftp?</a></li>
+              <li><a href="#M000008">enabled_html?</a></li>
+              <li><a href="#M000055">enabled_html?</a></li>
+              <li><a href="#M000054">enabled_http?</a></li>
+              <li><a href="#M000007">enabled_http?</a></li>
+              <li><a href="#M000056">enabled_iconv?</a></li>
+              <li><a href="#M000009">enabled_iconv?</a></li>
+              <li><a href="#M000057">enabled_memory_debug?</a></li>
+              <li><a href="#M000010">enabled_memory_debug?</a></li>
+              <li><a href="#M000011">enabled_regexp?</a></li>
+              <li><a href="#M000058">enabled_regexp?</a></li>
+              <li><a href="#M000059">enabled_schemas?</a></li>
+              <li><a href="#M000012">enabled_schemas?</a></li>
+              <li><a href="#M000013">enabled_thread?</a></li>
+              <li><a href="#M000060">enabled_thread?</a></li>
+              <li><a href="#M000061">enabled_unicode?</a></li>
+              <li><a href="#M000014">enabled_unicode?</a></li>
+              <li><a href="#M000015">enabled_xinclude?</a></li>
+              <li><a href="#M000062">enabled_xinclude?</a></li>
+              <li><a href="#M000063">enabled_xpath?</a></li>
+              <li><a href="#M000016">enabled_xpath?</a></li>
+              <li><a href="#M000064">enabled_xpointer?</a></li>
+              <li><a href="#M000017">enabled_xpointer?</a></li>
+              <li><a href="#M000018">enabled_zlib?</a></li>
+              <li><a href="#M000065">enabled_zlib?</a></li>
+              <li><a href="#M000090">features</a></li>
+              <li><a href="#M000043">features</a></li>
+              <li><a href="#M000044">indent_tree_output</a></li>
+              <li><a href="#M000091">indent_tree_output</a></li>
+              <li><a href="#M000045">indent_tree_output=</a></li>
+              <li><a href="#M000092">indent_tree_output=</a></li>
+              <li><a href="#M000093">memory_dump</a></li>
+              <li><a href="#M000046">memory_dump</a></li>
+              <li><a href="#M000047">memory_used</a></li>
+              <li><a href="#M000094">memory_used</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='class-list'>
+              <h2>Classes and Modules</h2>
+              Module <a href="XML/Encoding.html" class="link">LibXML::XML::Encoding</a><br />
+              Module <a href="XML/XPath.html" class="link">LibXML::XML::XPath</a><br />
+              Class <a href="XML/Attr.html" class="link">LibXML::XML::Attr</a><br />
+              Class <a href="XML/AttrDecl.html" class="link">LibXML::XML::AttrDecl</a><br />
+              Class <a href="XML/Attributes.html" class="link">LibXML::XML::Attributes</a><br />
+              Class <a href="XML/Document.html" class="link">LibXML::XML::Document</a><br />
+              Class <a href="XML/Dtd.html" class="link">LibXML::XML::Dtd</a><br />
+              Class <a href="XML/Error.html" class="link">LibXML::XML::Error</a><br />
+              Class <a href="XML/HTMLParser.html" class="link">LibXML::XML::HTMLParser</a><br />
+              Class <a href="XML/InputCallbacks.html" class="link">LibXML::XML::InputCallbacks</a><br />
+              Class <a href="XML/Namespace.html" class="link">LibXML::XML::Namespace</a><br />
+              Class <a href="XML/Namespaces.html" class="link">LibXML::XML::Namespaces</a><br />
+              Class <a href="XML/Node.html" class="link">LibXML::XML::Node</a><br />
+              Class <a href="XML/Parser.html" class="link">LibXML::XML::Parser</a><br />
+              Class <a href="XML/Reader.html" class="link">LibXML::XML::Reader</a><br />
+              Class <a href="XML/RelaxNG.html" class="link">LibXML::XML::RelaxNG</a><br />
+              Class <a href="XML/SaxParser.html" class="link">LibXML::XML::SaxParser</a><br />
+              Class <a href="XML/Schema.html" class="link">LibXML::XML::Schema</a><br />
+              Class <a href="XML/XInclude.html" class="link">LibXML::XML::XInclude</a><br />
+              Class <a href="XML/XPointer.html" class="link">LibXML::XML::XPointer</a><br />
+            </div>
+            <div id='constants-list'>
+              <h2>Constants</h2>
+              <div class='name-list'>
+                <table summary='Constants'>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>LIBXML_VERSION</td>
+                    <td>=</td>
+                    <td class='context-item-value'>rb_str_new2(LIBXML_DOTTED_VERSION)</td>
+                    <td>&nbsp;</td>
+                    <td class='context-item-desc'>
+                      
+                      Constants
+                    </td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>VERSION</td>
+                    <td>=</td>
+                    <td class='context-item-value'>rb_str_new2(RUBY_LIBXML_VERSION)</td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>VERNUM</td>
+                    <td>=</td>
+                    <td class='context-item-value'>INT2NUM(RUBY_LIBXML_VERNUM)</td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>XML_NAMESPACE</td>
+                    <td>=</td>
+                    <td class='context-item-value'>rb_str_new2((const char*) XML_XML_NAMESPACE)</td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>LIBXML_VERSION</td>
+                    <td>=</td>
+                    <td class='context-item-value'>rb_str_new2(LIBXML_DOTTED_VERSION)</td>
+                    <td>&nbsp;</td>
+                    <td class='context-item-desc'>
+                      
+                      Constants
+                    </td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>VERSION</td>
+                    <td>=</td>
+                    <td class='context-item-value'>rb_str_new2(RUBY_LIBXML_VERSION)</td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>VERNUM</td>
+                    <td>=</td>
+                    <td class='context-item-value'>INT2NUM(RUBY_LIBXML_VERNUM)</td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>XML_NAMESPACE</td>
+                    <td>=</td>
+                    <td class='context-item-value'>rb_str_new2((const char*) XML_XML_NAMESPACE)</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='method public-class' id='method-M000066'>
+                <a name='M000066'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.catalog_dump &rarr; true<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Dump all the global catalog content stdout.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000066-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000066-source'>static VALUE rxml_catalog_dump(VALUE self)&#x000A;{&#x000A;  xmlCatalogDump(stdout);&#x000A;  return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000019'>
+                <a name='M000019'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.catalog_dump &rarr; true<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Dump all the global catalog content stdout.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000019-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000019-source'>static VALUE rxml_catalog_dump(VALUE self)&#x000A;{&#x000A;  xmlCatalogDump(stdout);&#x000A;  return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000067'>
+                <a name='M000067'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.catalog_remove(catalog) &rarr; true<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Remove the specified resource catalog.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000067-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000067-source'>static VALUE rxml_catalog_remove(VALUE self, VALUE cat)&#x000A;{&#x000A;  Check_Type(cat, T_STRING);&#x000A;  xmlCatalogRemove((xmlChar *) StringValuePtr(cat));&#x000A;  return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000020'>
+                <a name='M000020'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.catalog_remove(catalog) &rarr; true<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Remove the specified resource catalog.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000020-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000020-source'>static VALUE rxml_catalog_remove(VALUE self, VALUE cat)&#x000A;{&#x000A;  Check_Type(cat, T_STRING);&#x000A;  xmlCatalogRemove((xmlChar *) StringValuePtr(cat));&#x000A;  return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000068'>
+                <a name='M000068'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.check_lib_versions &rarr; true<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Check LIBXML version matches version the bindings were compiled to. Throws
+                  an exception if not.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000068-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000068-source'>static VALUE rxml_check_lib_versions(VALUE klass)&#x000A;{&#x000A;  xmlCheckVersion(LIBXML_VERSION);&#x000A;  return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000021'>
+                <a name='M000021'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.check_lib_versions &rarr; true<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Check LIBXML version matches version the bindings were compiled to. Throws
+                  an exception if not.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000021-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000021-source'>static VALUE rxml_check_lib_versions(VALUE klass)&#x000A;{&#x000A;  xmlCheckVersion(LIBXML_VERSION);&#x000A;  return (Qtrue);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000069'>
+                <a name='M000069'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.debug_entities &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether included-entity debugging is enabled. (Requires Libxml to
+                  be compiled with debugging support)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000069-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000069-source'>static VALUE rxml_debug_entities_get(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_DEBUG_ENABLED&#x000A;  if (xmlParserDebugEntities)&#x000A;  return(Qtrue);&#x000A;  else&#x000A;  return(Qfalse);&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000022'>
+                <a name='M000022'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.debug_entities &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether included-entity debugging is enabled. (Requires Libxml to
+                  be compiled with debugging support)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000022-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000022-source'>static VALUE rxml_debug_entities_get(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_DEBUG_ENABLED&#x000A;  if (xmlParserDebugEntities)&#x000A;  return(Qtrue);&#x000A;  else&#x000A;  return(Qfalse);&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000070'>
+                <a name='M000070'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.debug_entities = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Enable or disable included-entity debugging. (Requires Libxml to be
+                  compiled with debugging support)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000070-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000070-source'>static VALUE rxml_debug_entities_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;#ifdef LIBXML_DEBUG_ENABLED&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlParserDebugEntities = 0;&#x000A;    return(Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlParserDebugEntities = 1;&#x000A;    return(Qtrue);&#x000A;  }&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000023'>
+                <a name='M000023'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.debug_entities = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Enable or disable included-entity debugging. (Requires Libxml to be
+                  compiled with debugging support)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000023-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000023-source'>static VALUE rxml_debug_entities_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;#ifdef LIBXML_DEBUG_ENABLED&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlParserDebugEntities = 0;&#x000A;    return(Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlParserDebugEntities = 1;&#x000A;    return(Qtrue);&#x000A;  }&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000071'>
+                <a name='M000071'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_compression &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers use Zlib compression by default (requires libxml
+                  to be compiled with Zlib support).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000071-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000071-source'>static VALUE rxml_default_compression_get(VALUE klass)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  return(INT2FIX(xmlGetCompressMode()));&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without zlib support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000024'>
+                <a name='M000024'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_compression &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers use Zlib compression by default (requires libxml
+                  to be compiled with Zlib support).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000024-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000024-source'>static VALUE rxml_default_compression_get(VALUE klass)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  return(INT2FIX(xmlGetCompressMode()));&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without zlib support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000025'>
+                <a name='M000025'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_compression = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers use Zlib compression by default (requires libxml
+                  to be compiled with Zlib support).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000025-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000025-source'>static VALUE rxml_default_compression_set(VALUE klass, VALUE num)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  Check_Type(num, T_FIXNUM);&#x000A;  xmlSetCompressMode(FIX2INT(num));&#x000A;  return(num);&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without zlib support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000072'>
+                <a name='M000072'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_compression = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers use Zlib compression by default (requires libxml
+                  to be compiled with Zlib support).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000072-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000072-source'>static VALUE rxml_default_compression_set(VALUE klass, VALUE num)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  Check_Type(num, T_FIXNUM);&#x000A;  xmlSetCompressMode(FIX2INT(num));&#x000A;  return(num);&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without zlib support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000073'>
+                <a name='M000073'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_keep_blanks &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers retain whitespace by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000073-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000073-source'>static VALUE rxml_default_keep_blanks_get(VALUE klass)&#x000A;{&#x000A;  if (xmlKeepBlanksDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000026'>
+                <a name='M000026'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_keep_blanks &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers retain whitespace by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000026-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000026-source'>static VALUE rxml_default_keep_blanks_get(VALUE klass)&#x000A;{&#x000A;  if (xmlKeepBlanksDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000027'>
+                <a name='M000027'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_keep_blanks = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers retain whitespace by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000027-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000027-source'>static VALUE rxml_default_keep_blanks_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlKeepBlanksDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else if (TYPE(bool) == T_TRUE)&#x000A;  {&#x000A;    xmlKeepBlanksDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rb_raise(rb_eArgError, &quot;Invalid argument, must be a boolean&quot;);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000074'>
+                <a name='M000074'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_keep_blanks = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers retain whitespace by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000074-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000074-source'>static VALUE rxml_default_keep_blanks_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlKeepBlanksDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else if (TYPE(bool) == T_TRUE)&#x000A;  {&#x000A;    xmlKeepBlanksDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rb_raise(rb_eArgError, &quot;Invalid argument, must be a boolean&quot;);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000077'>
+                <a name='M000077'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_line_numbers &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers retain line-numbers by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000077-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000077-source'>static VALUE rxml_default_line_numbers_get(VALUE klass)&#x000A;{&#x000A;  if (xmlLineNumbersDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000030'>
+                <a name='M000030'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_line_numbers &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers retain line-numbers by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000030-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000030-source'>static VALUE rxml_default_line_numbers_get(VALUE klass)&#x000A;{&#x000A;  if (xmlLineNumbersDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000031'>
+                <a name='M000031'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_line_numbers = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers retain line-numbers by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000031-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000031-source'>static VALUE rxml_default_line_numbers_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlLineNumbersDefault(0);&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlLineNumbersDefault(1);&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000078'>
+                <a name='M000078'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_line_numbers = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers retain line-numbers by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000078-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000078-source'>static VALUE rxml_default_line_numbers_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlLineNumbersDefault(0);&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlLineNumbersDefault(1);&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000028'>
+                <a name='M000028'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_load_external_dtd &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers load external DTDs by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000028-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000028-source'>static VALUE rxml_default_load_external_dtd_get(VALUE klass)&#x000A;{&#x000A;  if (xmlLoadExtDtdDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000075'>
+                <a name='M000075'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_load_external_dtd &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers load external DTDs by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000075-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000075-source'>static VALUE rxml_default_load_external_dtd_get(VALUE klass)&#x000A;{&#x000A;  if (xmlLoadExtDtdDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000029'>
+                <a name='M000029'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_load_external_dtd = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers load external DTDs by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000029-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000029-source'>static VALUE rxml_default_load_external_dtd_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (bool == Qfalse)&#x000A;  {&#x000A;    xmlLoadExtDtdDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlLoadExtDtdDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000076'>
+                <a name='M000076'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_load_external_dtd = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers load external DTDs by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000076-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000076-source'>static VALUE rxml_default_load_external_dtd_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (bool == Qfalse)&#x000A;  {&#x000A;    xmlLoadExtDtdDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlLoadExtDtdDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000079'>
+                <a name='M000079'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_options &rarr; int<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns an integer that summarize libxml2&#8217;s default options.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000079-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000079-source'>static VALUE rxml_default_options_get(VALUE klass)&#x000A;{&#x000A;  int options = rxml_libxml_default_options();&#x000A;  return INT2NUM(options);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000032'>
+                <a name='M000032'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_options &rarr; int<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns an integer that summarize libxml2&#8217;s default options.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000032-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000032-source'>static VALUE rxml_default_options_get(VALUE klass)&#x000A;{&#x000A;  int options = rxml_libxml_default_options();&#x000A;  return INT2NUM(options);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000033'>
+                <a name='M000033'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_pedantic_parser &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers are pedantic by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000033-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000033-source'>static VALUE rxml_default_pedantic_parser_get(VALUE klass)&#x000A;{&#x000A;  if (xmlPedanticParserDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000080'>
+                <a name='M000080'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_pedantic_parser &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers are pedantic by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000080-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000080-source'>static VALUE rxml_default_pedantic_parser_get(VALUE klass)&#x000A;{&#x000A;  if (xmlPedanticParserDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000081'>
+                <a name='M000081'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_pedantic_parser = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers are pedantic by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000081-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000081-source'>static VALUE rxml_default_pedantic_parser_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlPedanticParserDefault(0);&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlPedanticParserDefault(1);&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000034'>
+                <a name='M000034'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_pedantic_parser = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers are pedantic by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000034-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000034-source'>static VALUE rxml_default_pedantic_parser_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlPedanticParserDefault(0);&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlPedanticParserDefault(1);&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000035'>
+                <a name='M000035'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_substitute_entities &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers perform inline entity substitution (for external
+                  entities) by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000035-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000035-source'>static VALUE rxml_default_substitute_entities_get(VALUE klass)&#x000A;{&#x000A;  if (xmlSubstituteEntitiesDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000082'>
+                <a name='M000082'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_substitute_entities &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers perform inline entity substitution (for external
+                  entities) by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000082-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000082-source'>static VALUE rxml_default_substitute_entities_get(VALUE klass)&#x000A;{&#x000A;  if (xmlSubstituteEntitiesDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000036'>
+                <a name='M000036'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_substitute_entities = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers perform inline entity substitution (for external
+                  entities) by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000036-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000036-source'>static VALUE rxml_default_substitute_entities_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (bool == Qfalse)&#x000A;  {&#x000A;    xmlSubstituteEntitiesDefault(0);&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlSubstituteEntitiesDefault(1);&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000083'>
+                <a name='M000083'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_substitute_entities = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers perform inline entity substitution (for external
+                  entities) by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000083-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000083-source'>static VALUE rxml_default_substitute_entities_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (bool == Qfalse)&#x000A;  {&#x000A;    xmlSubstituteEntitiesDefault(0);&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlSubstituteEntitiesDefault(1);&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000037'>
+                <a name='M000037'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_tree_indent_string &rarr; "string"<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the default string used by parsers to indent the <a
+                  href="XML.html">XML</a> tree for output.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000037-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000037-source'>static VALUE rxml_default_tree_indent_string_get(VALUE klass)&#x000A;{&#x000A;  if (xmlTreeIndentString == NULL)&#x000A;    return (Qnil);&#x000A;  else&#x000A;    return (rb_str_new2(xmlTreeIndentString));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000084'>
+                <a name='M000084'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_tree_indent_string &rarr; "string"<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtain the default string used by parsers to indent the <a
+                  href="XML.html">XML</a> tree for output.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000084-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000084-source'>static VALUE rxml_default_tree_indent_string_get(VALUE klass)&#x000A;{&#x000A;  if (xmlTreeIndentString == NULL)&#x000A;    return (Qnil);&#x000A;  else&#x000A;    return (rb_str_new2(xmlTreeIndentString));&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000038'>
+                <a name='M000038'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_tree_indent_string = "string"<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Set the default string used by parsers to indent the <a
+                  href="XML.html">XML</a> tree for output.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000038-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000038-source'>static VALUE rxml_default_tree_indent_string_set(VALUE klass, VALUE string)&#x000A;{&#x000A;  Check_Type(string, T_STRING);&#x000A;  xmlTreeIndentString = xmlStrdup((xmlChar *)StringValuePtr(string));&#x000A;  return (string);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000085'>
+                <a name='M000085'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_tree_indent_string = "string"<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Set the default string used by parsers to indent the <a
+                  href="XML.html">XML</a> tree for output.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000085-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000085-source'>static VALUE rxml_default_tree_indent_string_set(VALUE klass, VALUE string)&#x000A;{&#x000A;  Check_Type(string, T_STRING);&#x000A;  xmlTreeIndentString = xmlStrdup((xmlChar *)StringValuePtr(string));&#x000A;  return (string);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000039'>
+                <a name='M000039'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_validity_checking &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers perform <a href="XML.html">XML</a> validation by
+                  default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000039-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000039-source'>static VALUE rxml_default_validity_checking_get(VALUE klass)&#x000A;{&#x000A;  if (xmlDoValidityCheckingDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000086'>
+                <a name='M000086'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_validity_checking &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers perform <a href="XML.html">XML</a> validation by
+                  default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000086-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000086-source'>static VALUE rxml_default_validity_checking_get(VALUE klass)&#x000A;{&#x000A;  if (xmlDoValidityCheckingDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000040'>
+                <a name='M000040'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_validity_checking = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers perform <a href="XML.html">XML</a> validation by
+                  default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000040-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000040-source'>static VALUE rxml_default_validity_checking_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlDoValidityCheckingDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlDoValidityCheckingDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000087'>
+                <a name='M000087'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_validity_checking = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers perform <a href="XML.html">XML</a> validation by
+                  default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000087-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000087-source'>static VALUE rxml_default_validity_checking_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlDoValidityCheckingDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlDoValidityCheckingDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000041'>
+                <a name='M000041'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_warnings &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers output warnings by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000041-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000041-source'>static VALUE rxml_default_warnings_get(VALUE klass)&#x000A;{&#x000A;  if (xmlGetWarningsDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000088'>
+                <a name='M000088'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_warnings &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether parsers output warnings by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000088-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000088-source'>static VALUE rxml_default_warnings_get(VALUE klass)&#x000A;{&#x000A;  if (xmlGetWarningsDefaultValue)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000089'>
+                <a name='M000089'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_warnings = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers output warnings by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000089-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000089-source'>static VALUE rxml_default_warnings_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlGetWarningsDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlGetWarningsDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000042'>
+                <a name='M000042'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.default_warnings = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether parsers output warnings by default.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000042-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000042-source'>static VALUE rxml_default_warnings_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlGetWarningsDefaultValue = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    xmlGetWarningsDefaultValue = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000001'>
+                <a name='M000001'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_automata? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml regexp automata support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000001-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000001-source'>static VALUE rxml_enabled_automata_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_AUTOMATA_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000048'>
+                <a name='M000048'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_automata? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml regexp automata support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000048-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000048-source'>static VALUE rxml_enabled_automata_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_AUTOMATA_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000002'>
+                <a name='M000002'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_c14n? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml &#8216;canonical XML&#8217; support is enabled.
+                  See &#8220;Canonical XML&#8221; (<a
+                  href="http://www.w3.org/TR/xml-c14n">www.w3.org/TR/xml-c14n</a>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000002-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000002-source'>static VALUE rxml_enabled_c14n_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_C14N_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000049'>
+                <a name='M000049'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_c14n? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml &#8216;canonical XML&#8217; support is enabled.
+                  See &#8220;Canonical XML&#8221; (<a
+                  href="http://www.w3.org/TR/xml-c14n">www.w3.org/TR/xml-c14n</a>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000049-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000049-source'>static VALUE rxml_enabled_c14n_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_C14N_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000050'>
+                <a name='M000050'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_catalog? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml resource catalog support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000050-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000050-source'>static VALUE rxml_enabled_catalog_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_CATALOG_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000003'>
+                <a name='M000003'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_catalog? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml resource catalog support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000003-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000003-source'>static VALUE rxml_enabled_catalog_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_CATALOG_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000004'>
+                <a name='M000004'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_debug? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml debugging support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000004-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000004-source'>static VALUE rxml_enabled_debug_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_DEBUG_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000051'>
+                <a name='M000051'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_debug? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml debugging support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000051-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000051-source'>static VALUE rxml_enabled_debug_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_DEBUG_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000005'>
+                <a name='M000005'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_docbook? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml docbook support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000005-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000005-source'>static VALUE rxml_enabled_docbook_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_DOCB_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000052'>
+                <a name='M000052'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_docbook? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml docbook support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000052-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000052-source'>static VALUE rxml_enabled_docbook_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_DOCB_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000053'>
+                <a name='M000053'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_ftp? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml ftp client support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000053-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000053-source'>static VALUE rxml_enabled_ftp_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_FTP_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000006'>
+                <a name='M000006'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_ftp? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml ftp client support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000006-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000006-source'>static VALUE rxml_enabled_ftp_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_FTP_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000008'>
+                <a name='M000008'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_html? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml html support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000008-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000008-source'>static VALUE rxml_enabled_html_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_HTML_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000055'>
+                <a name='M000055'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_html? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml html support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000055-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000055-source'>static VALUE rxml_enabled_html_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_HTML_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000054'>
+                <a name='M000054'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_http? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml http client support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000054-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000054-source'>static VALUE rxml_enabled_http_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_HTTP_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000007'>
+                <a name='M000007'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_http? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml http client support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000007-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000007-source'>static VALUE rxml_enabled_http_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_HTTP_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000056'>
+                <a name='M000056'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_iconv? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml iconv support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000056-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000056-source'>static VALUE rxml_enabled_iconv_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_ICONV_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000009'>
+                <a name='M000009'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_iconv? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml iconv support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000009-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000009-source'>static VALUE rxml_enabled_iconv_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_ICONV_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000057'>
+                <a name='M000057'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_memory_debug? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml memory location debugging support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000057-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000057-source'>static VALUE rxml_enabled_memory_debug_location_q(VALUE klass)&#x000A;{&#x000A;#ifdef DEBUG_MEMORY_LOCATION&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000010'>
+                <a name='M000010'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_memory_debug? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml memory location debugging support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000010-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000010-source'>static VALUE rxml_enabled_memory_debug_location_q(VALUE klass)&#x000A;{&#x000A;#ifdef DEBUG_MEMORY_LOCATION&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000011'>
+                <a name='M000011'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_regexp? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml regular expression support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000011-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000011-source'>static VALUE rxml_enabled_regexp_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_REGEXP_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000058'>
+                <a name='M000058'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_regexp? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml regular expression support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000058-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000058-source'>static VALUE rxml_enabled_regexp_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_REGEXP_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000059'>
+                <a name='M000059'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_schemas? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml schema support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000059-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000059-source'>static VALUE rxml_enabled_schemas_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_SCHEMAS_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000012'>
+                <a name='M000012'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_schemas? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml schema support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000012-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000012-source'>static VALUE rxml_enabled_schemas_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_SCHEMAS_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000013'>
+                <a name='M000013'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_thread? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether thread-safe semantics support for libxml is enabled and
+                  is used by this ruby extension. Threading support in libxml uses pthread on
+                  Unix-like systems and Win32 threads on Windows.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000013-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000013-source'>static VALUE rxml_enabled_thread_q(VALUE klass)&#x000A;{&#x000A;  /* This won't be defined unless this code is compiled with _REENTRANT or __MT__&#x000A;   * defined or the compiler is in C99 mode.&#x000A;   *&#x000A;   * Note the relevant portion libxml/xmlversion.h on a thread-enabled build:&#x000A;   *&#x000A;   *    #if defined(_REENTRANT) || defined(__MT__) || \&#x000A;   *        (defined(_POSIX_C_SOURCE) &amp;&amp; (_POSIX_C_SOURCE - 0 &gt;= 199506L))&#x000A;   *        #define LIBXML_THREAD_ENABLED&#x000A;   *    #endif&#x000A;   *&#x000A;   */&#x000A;#ifdef LIBXML_THREAD_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000060'>
+                <a name='M000060'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_thread? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether thread-safe semantics support for libxml is enabled and
+                  is used by this ruby extension. Threading support in libxml uses pthread on
+                  Unix-like systems and Win32 threads on Windows.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000060-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000060-source'>static VALUE rxml_enabled_thread_q(VALUE klass)&#x000A;{&#x000A;  /* This won't be defined unless this code is compiled with _REENTRANT or __MT__&#x000A;   * defined or the compiler is in C99 mode.&#x000A;   *&#x000A;   * Note the relevant portion libxml/xmlversion.h on a thread-enabled build:&#x000A;   *&#x000A;   *    #if defined(_REENTRANT) || defined(__MT__) || \&#x000A;   *        (defined(_POSIX_C_SOURCE) &amp;&amp; (_POSIX_C_SOURCE - 0 &gt;= 199506L))&#x000A;   *        #define LIBXML_THREAD_ENABLED&#x000A;   *    #endif&#x000A;   *&#x000A;   */&#x000A;#ifdef LIBXML_THREAD_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000061'>
+                <a name='M000061'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_unicode? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml unicode support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000061-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000061-source'>static VALUE rxml_enabled_unicode_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_UNICODE_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000014'>
+                <a name='M000014'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_unicode? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml unicode support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000014-source'>static VALUE rxml_enabled_unicode_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_UNICODE_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000015'>
+                <a name='M000015'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_xinclude? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml xinclude support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000015-source'>static VALUE rxml_enabled_xinclude_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_XINCLUDE_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000062'>
+                <a name='M000062'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_xinclude? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml xinclude support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000062-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000062-source'>static VALUE rxml_enabled_xinclude_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_XINCLUDE_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000063'>
+                <a name='M000063'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_xpath? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml xpath support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000063-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000063-source'>static VALUE rxml_enabled_xpath_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_XPATH_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000016'>
+                <a name='M000016'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_xpath? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml xpath support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000016-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000016-source'>static VALUE rxml_enabled_xpath_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_XPATH_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000064'>
+                <a name='M000064'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_xpointer? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml xpointer support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000064-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000064-source'>static VALUE rxml_enabled_xpointer_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_XPTR_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000017'>
+                <a name='M000017'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_xpointer? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml xpointer support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000017-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000017-source'>static VALUE rxml_enabled_xpointer_q(VALUE klass)&#x000A;{&#x000A;#ifdef LIBXML_XPTR_ENABLED&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000018'>
+                <a name='M000018'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_zlib? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml zlib support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000018-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000018-source'>static VALUE rxml_enabled_zlib_q(VALUE klass)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000065'>
+                <a name='M000065'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.enabled_zlib? &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determine whether libxml zlib support is enabled.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000065-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000065-source'>static VALUE rxml_enabled_zlib_q(VALUE klass)&#x000A;{&#x000A;#ifdef HAVE_ZLIB_H&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000090'>
+                <a name='M000090'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.features &rarr; ["feature", ..., "feature"]<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtains an array of strings representing features supported (and enabled)
+                  by the installed libxml.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000090-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000090-source'>static VALUE rxml_features(VALUE klass)&#x000A;{&#x000A;  VALUE arr, str;&#x000A;  int i, len = MAX_LIBXML_FEATURES_LEN;&#x000A;  char **list = NULL;&#x000A;&#x000A;  list = ALLOC_N(char *,MAX_LIBXML_FEATURES_LEN);&#x000A;  MEMZERO(list, char *, MAX_LIBXML_FEATURES_LEN);&#x000A;&#x000A;  arr = rb_ary_new();&#x000A;  if (xmlGetFeaturesList(&amp;len, (const char **) list) == -1)&#x000A;    return Qnil;&#x000A;&#x000A;  for (i = 0; i &lt; len; i++)&#x000A;  {&#x000A;    str = rb_str_new2((const char *) list[i]);&#x000A;    rb_gc_unregister_address(&amp;str);&#x000A;    rb_ary_push(arr, str);&#x000A;  }&#x000A;&#x000A;  if (len == MAX_LIBXML_FEATURES_LEN)&#x000A;    rb_warn(&#x000A;        &quot;Please contact libxml-devel@rubyforge.org and ask to have the \&quot;MAX_LIBXML_FEATURES_LEN increased\&quot; because you could possibly be seeing an incomplete list&quot;);&#x000A;&#x000A;  ruby_xfree(list);&#x000A;  return (arr);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000043'>
+                <a name='M000043'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.features &rarr; ["feature", ..., "feature"]<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Obtains an array of strings representing features supported (and enabled)
+                  by the installed libxml.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000043-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000043-source'>static VALUE rxml_features(VALUE klass)&#x000A;{&#x000A;  VALUE arr, str;&#x000A;  int i, len = MAX_LIBXML_FEATURES_LEN;&#x000A;  char **list = NULL;&#x000A;&#x000A;  list = ALLOC_N(char *,MAX_LIBXML_FEATURES_LEN);&#x000A;  MEMZERO(list, char *, MAX_LIBXML_FEATURES_LEN);&#x000A;&#x000A;  arr = rb_ary_new();&#x000A;  if (xmlGetFeaturesList(&amp;len, (const char **) list) == -1)&#x000A;    return Qnil;&#x000A;&#x000A;  for (i = 0; i &lt; len; i++)&#x000A;  {&#x000A;    str = rb_str_new2((const char *) list[i]);&#x000A;    rb_gc_unregister_address(&amp;str);&#x000A;    rb_ary_push(arr, str);&#x000A;  }&#x000A;&#x000A;  if (len == MAX_LIBXML_FEATURES_LEN)&#x000A;    rb_warn(&#x000A;        &quot;Please contact libxml-devel@rubyforge.org and ask to have the \&quot;MAX_LIBXML_FEATURES_LEN increased\&quot; because you could possibly be seeing an incomplete list&quot;);&#x000A;&#x000A;  ruby_xfree(list);&#x000A;  return (arr);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000044'>
+                <a name='M000044'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.indent_tree_output &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determines whether <a href="XML.html">XML</a> output will be indented
+                  (using the string supplied to <tt>default_indent_tree_string</tt>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000044-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000044-source'>static VALUE rxml_indent_tree_output_get(VALUE klass)&#x000A;{&#x000A;  if (xmlIndentTreeOutput)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000091'>
+                <a name='M000091'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.indent_tree_output &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Determines whether <a href="XML.html">XML</a> output will be indented
+                  (using the string supplied to <tt>default_indent_tree_string</tt>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000091-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000091-source'>static VALUE rxml_indent_tree_output_get(VALUE klass)&#x000A;{&#x000A;  if (xmlIndentTreeOutput)&#x000A;    return (Qtrue);&#x000A;  else&#x000A;    return (Qfalse);&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000045'>
+                <a name='M000045'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.indent_tree_output = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether <a href="XML.html">XML</a> output will be indented (using
+                  the string supplied to <tt>default_indent_tree_string</tt>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000045-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000045-source'>static VALUE rxml_indent_tree_output_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_TRUE)&#x000A;  {&#x000A;    xmlIndentTreeOutput = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;  else if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlIndentTreeOutput = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rb_raise(rb_eArgError, &quot;Invalid argument, must be boolean&quot;);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000092'>
+                <a name='M000092'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.indent_tree_output = true|false<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Controls whether <a href="XML.html">XML</a> output will be indented (using
+                  the string supplied to <tt>default_indent_tree_string</tt>)
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000092-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000092-source'>static VALUE rxml_indent_tree_output_set(VALUE klass, VALUE bool)&#x000A;{&#x000A;  if (TYPE(bool) == T_TRUE)&#x000A;  {&#x000A;    xmlIndentTreeOutput = 1;&#x000A;    return (Qtrue);&#x000A;  }&#x000A;  else if (TYPE(bool) == T_FALSE)&#x000A;  {&#x000A;    xmlIndentTreeOutput = 0;&#x000A;    return (Qfalse);&#x000A;  }&#x000A;  else&#x000A;  {&#x000A;    rb_raise(rb_eArgError, &quot;Invalid argument, must be boolean&quot;);&#x000A;  }&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000093'>
+                <a name='M000093'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.memory_dump &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Perform a parser memory dump (requires memory debugging support in libxml).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000093-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000093-source'>static VALUE rxml_memory_dump(VALUE self)&#x000A;{&#x000A;#ifdef DEBUG_MEMORY_LOCATION&#x000A;  xmlMemoryDump();&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without memory debugging support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000046'>
+                <a name='M000046'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.memory_dump &rarr; (true|false)<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Perform a parser memory dump (requires memory debugging support in libxml).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000046-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000046-source'>static VALUE rxml_memory_dump(VALUE self)&#x000A;{&#x000A;#ifdef DEBUG_MEMORY_LOCATION&#x000A;  xmlMemoryDump();&#x000A;  return(Qtrue);&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without memory debugging support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000047'>
+                <a name='M000047'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.memory_used &rarr; num_bytes<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Perform a parser memory dump (requires memory debugging support in libxml).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000047-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000047-source'>static VALUE rxml_memory_used(VALUE self)&#x000A;{&#x000A;#ifdef DEBUG_MEMORY_LOCATION&#x000A;  return(INT2NUM(xmlMemUsed()));&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without memory debugging support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+              <div class='method public-class' id='method-M000094'>
+                <a name='M000094'></a>
+                <div class='synopsis'>
+                  <span class='name'>XML.memory_used &rarr; num_bytes<br /></span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Perform a parser memory dump (requires memory debugging support in libxml).
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000094-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000094-source'>static VALUE rxml_memory_used(VALUE self)&#x000A;{&#x000A;#ifdef DEBUG_MEMORY_LOCATION&#x000A;  return(INT2NUM(xmlMemUsed()));&#x000A;#else&#x000A;  rb_warn(&quot;libxml was compiled without memory debugging support&quot;);&#x000A;  return (Qfalse);&#x000A;#endif&#x000A;}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
