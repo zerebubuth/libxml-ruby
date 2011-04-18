@@ -31,7 +31,7 @@
         </div>
         <div class='last-update'>
           Last Update:
-          <span class='datetime'>Sun Apr 17 16:40:13 +0530 2011</span>
+          <span class='datetime'>Mon Apr 18 13:00:43 +0530 2011</span>
         </div>
       </div>
       <div id='content'>
@@ -91,18 +91,14 @@
             </p>
             <p>
             If you are running Windows, make sure to install the Win32 RubyGem which
-            includes an already built binary file. The binary is built against libxml2
-            version 2.7.2 and iconv version 1.11. Both of these are also included as
-            pre-built binaries, and should be put either in the libxml/lib directory or
-            on the Windows path. Due to a bug in ruby-gems, you cannot install the gem
-            to a path that contains spaces (see <a
-            href="http://rubyforge.org/tracker/?func=detail&aid=23003&group_id=126&atid=577">rubyforge.org/tracker/?func=detail&aid=23003&group_id=126&atid=577</a>).
+            includes prebuilt extensions for Ruby 1.8 and Ruby 1.9. These extensions
+            are built with MinGW32 against libxml2 version 2.7.8, iconv version 1.13
+            and zlib version 1.2.5. Note these binaries are available in the liblibs
+            directory. To use them, put them someplace on your path.
             </p>
             <p>
-            The Windows binaries are built with MingW and include libxml-ruby, libxml2
-            and iconv. The gem also includes a Microsoft VC++ 2008 solution. If you
-            wish to run a debug version of libxml-ruby on Windows, then it is highly
-            recommended you use VC++.
+            The gem also includes a Microsoft VC++ 2010 solution (useful for
+            debugging).
             </p>
             <h2>Getting Started</h2>
             <p>
@@ -182,8 +178,11 @@
             </p>
             <h2>Usage</h2>
             <p>
-            For in-depth information about using libxml-ruby please refer to its online
-            Rdoc documentation.
+            For information about using libxml-ruby please refer to its documentation
+            at <a
+            href="http://xml4r.github.com/libxml-ruby/rdoc/index.html">xml4r.github.com/libxml-ruby/rdoc/index.html</a>
+            Some tutorials are also available at <a
+            href="https://github.com/xml4r/libxml-ruby/wiki.">github.com/xml4r/libxml-ruby/wiki.</a>
             </p>
             <p>
             All libxml classes are in the <a
@@ -228,11 +227,14 @@
             <pre>              user     system      total        real&#x000A;libxml    0.641000   0.031000   0.672000 (  0.672000)&#x000A;hpricot   5.359000   0.062000   5.421000 (  5.516000)&#x000A;rexml    22.859000   0.047000  22.906000 ( 23.203000)</pre>
             <h2>Documentation</h2>
             <p>
-            Documentation is provided via rdoc. To generate the documentation, run the
-            the command &#8216;rake doc&#8217;. libxml-ruby&#8217;s online
-            documentation is generated using Hanna. To use hanna:
+            Documentation is available via rdoc, and is installed automatically with
+            the gem.
             </p>
-            <pre>gem install mislav-hanna&#x000A;rake rdoc RDOCOPT=&quot;-S -T hanna&quot;</pre>
+            <p>
+            libxml-ruby&#8217;s online documentation is generated using Hanna. To
+            generate documentation from source:
+            </p>
+            <pre>gem install hanna&#x000A;rake rdoc</pre>
             <p>
             Note that older versions of Rdoc, which ship with Ruby 1.8.x, will report a
             number of errors. To avoid them, install Rdoc 2.1 or higher from RubyForge
@@ -245,8 +247,8 @@
             <p>
             If you have any questions about using libxml-ruby, please send them to
             libxml-devel@rubyforge.org. If you have found any bugs in libxml-devel, or
-            have developed new patches, please submit them to Ruby Forge at <a
-            href="http://rubyforge.org/tracker/?group_id=494">rubyforge.org/tracker/?group_id=494</a>.
+            have developed new patches, please submit them to Git Hub at <a
+            href="https://github.com/xml4r/libxml-ruby/issues.">github.com/xml4r/libxml-ruby/issues.</a>
             </p>
             <h2>License</h2>
             <p>

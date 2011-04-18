@@ -165,7 +165,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000229-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000229-source'>static VALUE rxml_namespace_href_get(VALUE self)&#x000A;{&#x000A;  xmlNsPtr xns;&#x000A;  Data_Get_Struct(self, xmlNs, xns);&#x000A;  if (xns-&gt;href == NULL)&#x000A;    return Qnil;&#x000A;  else&#x000A;    return rxml_str_new2((const char*) xns-&gt;href, xns-&gt;context ? xns-&gt;context-&gt;encoding : NULL);&#x000A;}</pre>
+                  <pre id='M000229-source'>static VALUE rxml_namespace_href_get(VALUE self)&#x000A;{&#x000A;  xmlNsPtr xns;&#x000A;  Data_Get_Struct(self, xmlNs, xns);&#x000A;  if (xns-&gt;href == NULL)&#x000A;    return Qnil;&#x000A;  else&#x000A;    return rxml_namespace_string(xns, (const char*) xns-&gt;href);&#x000A;}</pre>
                 </div>
               </div>
               <div class='method public-instance' id='method-M000230'>
@@ -224,7 +224,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000232-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000232-source'>static VALUE rxml_namespace_prefix_get(VALUE self)&#x000A;{&#x000A;  xmlNsPtr xns;&#x000A;  Data_Get_Struct(self, xmlNs, xns);&#x000A;  if (xns-&gt;prefix == NULL)&#x000A;    return Qnil;&#x000A;  else&#x000A;    return rxml_str_new2((const char*) xns-&gt;prefix, xns-&gt;context ? xns-&gt;context-&gt;encoding : NULL);&#x000A;}</pre>
+                  <pre id='M000232-source'>static VALUE rxml_namespace_prefix_get(VALUE self)&#x000A;{&#x000A;  xmlNsPtr xns;&#x000A;  Data_Get_Struct(self, xmlNs, xns);&#x000A;  if (xns-&gt;prefix == NULL)&#x000A;    return Qnil;&#x000A;  else&#x000A;    return rxml_namespace_string(xns, (const char*) xns-&gt;prefix);&#x000A;}</pre>
                 </div>
               </div>
               <div class='method public-instance' id='method-M000235'>

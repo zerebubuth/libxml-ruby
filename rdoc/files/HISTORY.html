@@ -31,13 +31,60 @@
         </div>
         <div class='last-update'>
           Last Update:
-          <span class='datetime'>Sun Apr 17 16:40:13 +0530 2011</span>
+          <span class='datetime'>Mon Apr 18 11:19:12 +0530 2011</span>
         </div>
       </div>
       <div id='content'>
         <div id='text'>
           <div id='description'>
             <h1>Release History</h1>
+            <h2>2.0.1 / 2011-04-17 Charlie Savage</h2>
+            <ul>
+            <li>Added binaries for windows (Charlie Savage).
+            
+            </li>
+            <li>Update Ruby 1.9 encoding handling to support libxml versions older than
+            version 2.6.26 which was released on June 6, 2006 (Charlie Savage).
+            
+            </li>
+            <li>Add publish_with_docs rake task - combines publishing the website and docs
+            (Anurag Priyam).
+            
+            </li>
+            <li>Correctly copy the documentation directory (Anurag Priyam)
+            
+            </li>
+            <li>Use relative link for rdoc so the links are correct on both rubyforge and
+            github (Anurag Priyam).
+            
+            </li>
+            <li>Update Rakefile to use Hanna RDco template (Charlie Savage).
+            
+            </li>
+            <li>Update dates on license file (Charlie Savage).
+            
+            </li>
+            <li>Add api to allow setting of attribute namespaces. Fixes issue 10 (Charlie
+            Savage).
+            
+            </li>
+            <li>Remove old hack to call the on_error method. This hack isn&#8217;t needed
+            anymore since a better workaround was put in place in the parser context.
+            Fixes This fixes issue 12 (Charlie Savage).
+            
+            </li>
+            <li>Remove references to passing blocks to validation functions. The blocks are
+            no longer called since the bindings use libxml&#8217;s structured error
+            handling. See issue 6 (Charlie Savage).
+            
+            </li>
+            <li>Fix up comment in Document and Node. See issue 8 (Charlie Savage).
+            
+            </li>
+            <li>Update website text (Charlie Savage).
+            
+            </li>
+            </ul>
             <h2>2.0.0 / 2011-04-16 Charlie Savage</h2>
             <ul>
             <li>Ruby 1.9.2 support. The biggest addition is encoding support. Strings
