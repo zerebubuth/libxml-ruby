@@ -858,17 +858,28 @@ static VALUE rxml_reader_lookup_namespace(VALUE self, VALUE prefix)
 static VALUE rxml_reader_expand(VALUE self)
 {
   xmlNodePtr node, nodec;
+  xmlDocPtr docc;
   xmlTextReaderPtr reader = rxml_text_reader_get(self);
   node = xmlTextReaderExpand(reader);
 
   if (!node)
     return Qnil;
   else {
-    nodec = xmlCopyNode(node, 1);
-    if (!nodec)
-      return Qnil;
-    else
+    /* need to copy the document as well, as the document
+     * stores the encodings and namespaces. */
+    docc = xmlCopyDoc(node->doc, 0);
+    nodec = xmlDocCopyNode(node, docc, 1);
+    if ((nodec != NULL) && (docc != NULL)) {
+      /* wrap the document so that it will be GC'd. */
+      rxml_document_wrap(docc);
       return rxml_node_wrap(nodec);
+
+    } else {
+      if (nodec != NULL) xmlFreeNode(nodec);
+      if (docc != NULL) xmlFreeDoc(docc);
+
+      return Qnil;
+    }
   }
 }
 

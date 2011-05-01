@@ -58,7 +58,8 @@ module LibXML
         context = XPath::Context.new(self)
         context.node = self
         context.register_namespaces_from_node(self)
-        context.register_namespaces_from_node(self.doc.root)
+        # document root might be nil if this is a textreader expanded node.
+        context.register_namespaces_from_node(self.doc.root) unless self.doc.root.nil?
         context.register_namespaces(nslist) if nslist
         context
       end

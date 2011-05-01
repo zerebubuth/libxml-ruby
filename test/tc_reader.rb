@@ -166,7 +166,6 @@ class TestReader < Test::Unit::TestCase
     reader = XML::Reader.file(XML_FILE)
     reader.read
     node = reader.expand
-    assert_nil(node.doc)
     reader.close
     GC.start
   end
@@ -294,5 +293,16 @@ class TestReader < Test::Unit::TestCase
 
     # Encoding is always null for strings, very annoying!
     assert_equal(reader.encoding, XML::Encoding::NONE)
+  end
+
+  def test_expanded_attr
+    reader = XML::Reader.string('<foo id="1"/>')
+    reader.read
+    node = reader.expand
+    reader.close
+    GC.start
+    
+    assert_equal('foo', node.name)
+    assert_equal('1', node['id'])
   end
 end
